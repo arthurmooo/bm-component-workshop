@@ -1,0 +1,27 @@
+/* Disclosures share the same pacing; state remains visible without motion. */
+button[aria-expanded] > :is(.lucide-chevron-down,.lucide-chevron-right) { transition:transform 240ms cubic-bezier(.22,1,.36,1); }
+.task-checklist-trigger[aria-expanded=false] > .lucide-chevron-down,
+.bm-supervision>header button[aria-expanded=false] > .lucide-chevron-down { transform:rotate(-90deg); }
+.recovery-actions button[aria-expanded=true] > .lucide-chevron-down { transform:rotate(180deg); }
+.bm-agent-detail[aria-expanded=true] > .lucide-chevron-right { transform:rotate(90deg); }
+:is(.ac-categories button,.pc-followup-choices button,.choice-grid label,.rated-grid article,.wc-alert,.ap-status,.ap-decision,.bm-agent-status) { transition:background-color 180ms ease,border-color 180ms ease,color 180ms ease,box-shadow 180ms ease; }
+:is(.task-check-progress,.goal-track,.bm-supervision-progress) > i { transition:width 240ms cubic-bezier(.22,1,.36,1); }
+.sourced-answer :is(blockquote,textarea) { display:block;box-sizing:border-box;width:100%;height:120px;min-height:120px;overflow:auto;white-space:pre-wrap;resize:none;font-family:inherit; }
+.answer-actions button { min-width:90px; }
+.rated-grid footer button { min-width:94px; }
+.rated-grid article:has(button[aria-pressed=true]) { background:#f3f9f5;border-color:#bad5c4; }
+.rated-grid button[aria-pressed=true] { color:#386b4e;background:#e8f3ec; }
+.workflow-template footer button { min-width:138px; }
+.workflow-template[data-state=running] .template-cover { background:#edf5ff; }
+.workflow-template[data-state=done] .template-cover { background:#edf7f1; }
+.workflow-template[data-state=done] footer button { color:#386b4e;background:#e8f3ec; }
+.wc-envelope:has(.wc-primary .lucide-check) .wc-primary { color:#386b4e;background:#e8f3ec; }
+.editor-bottom>.button { min-width:174px; }
+.bm-horizontal-row button { transition:filter 150ms ease,box-shadow 150ms ease; }
+.bm-horizontal-row button:is(:hover,:focus-visible) { filter:brightness(.82);box-shadow:0 0 0 2px #427cbc22; }
+.bm-spark-row:has(button:is(:hover,:focus-visible)) { background:#edf3f9; }
+.bm-spark-row:has(button:is(:hover,:focus-visible)) polyline { stroke-width:2.5; }
+@media(prefers-reduced-motion:reduce) {
+ button[aria-expanded]>svg,.task-check-progress>i,.goal-track>i,.bm-supervision-progress>i,
+ .ac-categories button,.pc-followup-choices button,.choice-grid label,.rated-grid article,.wc-alert,.ap-status,.ap-decision,.bm-agent-status,.bm-horizontal-row button { transition:none!important; }
+}

@@ -1,0 +1,17 @@
+.bm-table-spark{display:inline-flex;align-items:center;gap:8px;min-width:120px}.bm-table-spark>button,.bm-table-spark>span{display:block;border:0;background:none;padding:0;border-radius:4px}.bm-table-spark svg{display:block;width:82px;height:28px;overflow:visible}.bm-table-spark line{stroke:#eef1f4}.bm-table-spark polyline{fill:none;stroke:#287ce6;stroke-width:1.6;stroke-linejoin:round;vector-effect:non-scaling-stroke}.bm-table-spark strong{font-size:var(--bm-text-small);font-weight:500;font-variant-numeric:tabular-nums;white-space:nowrap}.bm-table-spark>button:focus-visible{outline:2px solid #1685fa;outline-offset:3px}
+.bm-person-cell{display:inline-flex;align-items:center;gap:8px;white-space:nowrap;color:var(--bm-ink);font-weight:500}
+.bm-person-photo{display:block;flex:none;width:28px;height:28px;border-radius:50%;background-color:var(--bm-surface-muted);background-size:300% 100%;border:1px solid var(--bm-border)}
+.bm-next-action-cell{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:8px;min-width:0;width:100%;color:var(--bm-ink)}
+.bm-next-action-cell>span{display:grid;gap:3px;min-width:0}
+.bm-next-action-cell strong{font-size:var(--bm-text-small);font-weight:600;line-height:1.3;white-space:normal}
+.bm-next-action-cell small{font-size:var(--bm-text-caption);font-weight:500;line-height:1.25;color:var(--bm-ink-secondary)}
+.bm-next-action-cell[data-tone=attention] small{color:var(--bm-warning-ink)}
+.bm-next-action-cell[data-tone=overdue] small{color:var(--bm-danger-ink);font-weight:600}
+.bm-next-action-cell>svg{color:var(--bm-ink-muted);flex:none}
+
+.advanced-company>span>strong,.advanced-company>span>strong button{color:var(--bm-ink);font-weight:600}.advanced-company>span>strong button{padding-left:0;text-align:left}.shared-data-table td{font-variant-numeric:tabular-nums}
+
+.advanced-probability[data-rate-tone=low]{--rate-color:var(--bm-danger-ink)}
+.advanced-probability[data-rate-tone=medium]{--rate-color:var(--bm-warning-ink)}
+.advanced-probability[data-rate-tone=high]{--rate-color:var(--bm-success-ink)}
+.advanced-probability[data-rate-tone] .advanced-probability-track i{background:repeating-linear-gradient(90deg,var(--rate-color) 0 3px,transparent 3px 4px)}

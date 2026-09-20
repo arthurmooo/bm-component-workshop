@@ -1,0 +1,1424 @@
+{
+  "status": "Décomposition visuelle partielle vérifiée, aucune validation esthétique automatique",
+  "counts": {
+    "actuallyViewedImagesOrFrames": 75,
+    "catalogueAllMedia": 335,
+    "catalogueBusinessMedia": 251,
+    "analysisFamilies": 22,
+    "contactSheetsIncluded": 4
+  },
+  "limits": [
+    "Chaque ligne correspond à une image effectivement vue dans cet audit.",
+    "Les22familles08 ont leur source ou une frame inspectée. Deux dropdowns additionnels non réinspectés ici.",
+    "Les états ouverts et animations absents des images ne sont pas présumés validés.",
+    "Fichier implémenté signifie présence de code seulement, pas PASS esthétique ni validation utilisateur.",
+    "Les éléments des médias associés/exploratoires ne sont pas automatiquement des préférences validées.",
+    "État des implémentations pendant développement concurrent: certains écarts peuvent être corrigés après cet instant.",
+    "Les4planches contact couvrent chacune8frames échantillonnées, comptées comme4images vues et non32frames pleine taille."
+  ],
+  "inspections": [
+    {
+      "media": "../01-dashboards/neom-inbox.jpg",
+      "scope": "analyse-08",
+      "inspection": "image-statique-vue",
+      "observedComponents": [
+        "Navigation avec compteurs",
+        "Cartes inbox à actions",
+        "Alerte briefing",
+        "Agenda compact à date détachée"
+      ],
+      "implementationFiles": [
+        "navigation-demo.tsx",
+        "work-cards-demo.tsx",
+        "agenda-cards.tsx"
+      ],
+      "remainingGaps": [
+        "Contrôle visuel de fidélité restant"
+      ],
+      "visualPass": false
+    },
+    {
+      "media": "../04-collecte-locale-20260915/images/local-025.jpeg",
+      "scope": "analyse-08",
+      "inspection": "image-statique-vue",
+      "observedComponents": [
+        "Chips filtres",
+        "Range double borne",
+        "Note minimale étoilée",
+        "Checkboxes capacités",
+        "Footer résultat"
+      ],
+      "implementationFiles": [
+        "panels-demo.tsx"
+      ],
+      "remainingGaps": [
+        "Double borne et étoiles en cours root"
+      ],
+      "visualPass": false
+    },
+    {
+      "media": "../06-bookmarks-x-20260915/media/2098757799174132155/01.jpg",
+      "scope": "analyse-08",
+      "inspection": "image-statique-vue",
+      "observedComponents": [
+        "Pills catégories",
+        "Carte agent avec gradient et logos",
+        "Auteur miniature"
+      ],
+      "implementationFiles": [
+        "agent-catalog-demo.tsx"
+      ],
+      "remainingGaps": [
+        "Fidélité des portraits/logos à revoir"
+      ],
+      "visualPass": false
+    },
+    {
+      "media": "../06-bookmarks-x-20260915/media/2095557355777745393/01.jpg",
+      "scope": "analyse-08",
+      "inspection": "image-statique-vue",
+      "observedComponents": [
+        "Table sélection",
+        "Cellule multi-tags +N",
+        "Portrait responsable",
+        "Probabilité segmentée",
+        "Histogramme par ligne",
+        "Footer calcul par colonne"
+      ],
+      "implementationFiles": [
+        "advanced-table.tsx"
+      ],
+      "remainingGaps": [
+        "Versions locales ajoutées mais contrôle visuel restant"
+      ],
+      "visualPass": false
+    },
+    {
+      "media": "../06-bookmarks-x-20260915/media/2098757799174132155/02.jpg",
+      "scope": "catalogue-associe",
+      "inspection": "image-statique-vue",
+      "observedComponents": [
+        "Liste intégrations avec logo",
+        "Description tronquée",
+        "Bouton ajouter ou état connecté"
+      ],
+      "implementationFiles": [
+        "agent-catalog-demo.tsx"
+      ],
+      "remainingGaps": [
+        "La variante actuelle reste différente de la liste source"
+      ],
+      "visualPass": false
+    },
+    {
+      "media": "../06-bookmarks-x-20260915/media/2098757799174132155/03.jpg",
+      "scope": "catalogue-associe",
+      "inspection": "image-statique-vue",
+      "observedComponents": [
+        "Champ copie lien",
+        "Avatar stack",
+        "Partage équipe",
+        "Partage public",
+        "Deux switches indépendants",
+        "Publier"
+      ],
+      "implementationFiles": [
+        "agent-catalog-demo.tsx",
+        "permissions-demo.tsx"
+      ],
+      "remainingGaps": [
+        "Partage et stack en cours agent"
+      ],
+      "visualPass": false
+    },
+    {
+      "media": "../06-bookmarks-x-20260915/media/2098757799174132155/04.jpg",
+      "scope": "catalogue-associe",
+      "inspection": "image-statique-vue",
+      "observedComponents": [
+        "Popover connexion ancré",
+        "Logo titre description CTA",
+        "Sidebar apps"
+      ],
+      "implementationFiles": [
+        "agent-catalog-demo.tsx"
+      ],
+      "remainingGaps": [
+        "Popover connexion absent au moment de inspection"
+      ],
+      "visualPass": false
+    },
+    {
+      "media": "../06-bookmarks-x-20260915/media/2080638654842827228/03.jpg",
+      "scope": "catalogue-associe",
+      "inspection": "image-statique-vue",
+      "observedComponents": [
+        "Étapes exécution",
+        "Pills type outil",
+        "Bloc JSON avec copie",
+        "État terminé"
+      ],
+      "implementationFiles": [
+        "workflow-demo.tsx"
+      ],
+      "remainingGaps": [],
+      "visualPass": false
+    },
+    {
+      "media": "../06-bookmarks-x-20260915/media/2080638654842827228/04.jpg",
+      "scope": "catalogue-associe",
+      "inspection": "image-statique-vue",
+      "observedComponents": [
+        "Carte de relance numérotée",
+        "Choix actif",
+        "Continuer",
+        "Passer"
+      ],
+      "implementationFiles": [
+        "prompt-demo.tsx"
+      ],
+      "remainingGaps": [
+        "Relance en cours agent"
+      ],
+      "visualPass": false
+    },
+    {
+      "media": "../06-bookmarks-x-20260915/media/2092271113594081308/01.jpg",
+      "scope": "analyse-08",
+      "inspection": "image-statique-vue",
+      "observedComponents": [
+        "En-tête transfert montant statut",
+        "Accordions comptes",
+        "Table clé valeur",
+        "Copie identifiant",
+        "Chips pièces jointes",
+        "Approbations",
+        "Onglets timeline audit commentaires IA"
+      ],
+      "implementationFiles": [
+        "panels-demo.tsx"
+      ],
+      "remainingGaps": [
+        "Accordions comptes et bloc onglets encore absents",
+        "Chips contrat et facture encore absents"
+      ],
+      "visualPass": false
+    },
+    {
+      "media": "../06-bookmarks-x-20260915/media/2099426938645319938/02.jpg",
+      "scope": "catalogue-associe",
+      "inspection": "image-statique-vue",
+      "observedComponents": [
+        "Profil contact avec photo sur bannière",
+        "Actions Gmail LinkedIn",
+        "Onglets collègues",
+        "Résumé",
+        "Champs contact deux colonnes",
+        "Mini note segmentée"
+      ],
+      "implementationFiles": [
+        "panels-demo.tsx",
+        "directory-demo.tsx:ContactProfileDemo"
+      ],
+      "remainingGaps": [
+        "Version contact ajoutée; portraits illustrés et actions LinkedIn/Gmail non reproduites"
+      ],
+      "visualPass": false
+    },
+    {
+      "media": "../06-bookmarks-x-20260915/media/2092991035244958195/01.jpg",
+      "scope": "analyse-08",
+      "inspection": "image-statique-vue",
+      "observedComponents": [
+        "Sidebar compacte",
+        "Sections",
+        "Counts",
+        "État actif en relief"
+      ],
+      "implementationFiles": [
+        "navigation-demo.tsx"
+      ],
+      "remainingGaps": [],
+      "visualPass": false
+    },
+    {
+      "media": "../06-bookmarks-x-20260915/media/2094440844871045236/03.jpg",
+      "scope": "catalogue-associe",
+      "inspection": "image-statique-vue",
+      "observedComponents": [
+        "Carte alerte emboîtée",
+        "Valeur risque",
+        "Niveau et légende"
+      ],
+      "implementationFiles": [
+        "work-cards-demo.tsx"
+      ],
+      "remainingGaps": [],
+      "visualPass": false
+    },
+    {
+      "media": "../04-collecte-locale-20260915/images/local-011.jpeg",
+      "scope": "catalogue-exploratoire",
+      "inspection": "image-statique-vue",
+      "observedComponents": [
+        "Onglets icônes",
+        "Quota utilisateurs avec badge",
+        "Progression utilisée disponible"
+      ],
+      "implementationFiles": [
+        "kpi-card.tsx"
+      ],
+      "remainingGaps": [
+        "Quota numérateur dénominateur non reproduit exactement"
+      ],
+      "visualPass": false
+    },
+    {
+      "media": "../06-bookmarks-x-20260915/media/2082009734274543627/01.jpg",
+      "scope": "catalogue-exploratoire",
+      "inspection": "image-statique-vue",
+      "observedComponents": [
+        "Carte idée",
+        "Vote compteur",
+        "Statut",
+        "Auteur date commentaires",
+        "Progression",
+        "Filtres état",
+        "Checklist livré"
+      ],
+      "implementationFiles": [],
+      "remainingGaps": [
+        "Carte idée et vote absents"
+      ],
+      "visualPass": false
+    },
+    {
+      "media": "../06-bookmarks-x-20260915/media/2094787302967169266/03.jpg",
+      "scope": "catalogue-associe",
+      "inspection": "image-statique-vue",
+      "observedComponents": [
+        "Carte notification emboîtée dans horloge décorative"
+      ],
+      "implementationFiles": [
+        "micro-interactions-demo.tsx"
+      ],
+      "remainingGaps": [],
+      "visualPass": false
+    },
+    {
+      "media": "../06-bookmarks-x-20260915/media/2094787302967169266/04.jpg",
+      "scope": "catalogue-associe",
+      "inspection": "image-statique-vue",
+      "observedComponents": [
+        "Toolbar flottante typographie",
+        "Gras italique souligné",
+        "Alignement",
+        "Tooltip raccourci"
+      ],
+      "implementationFiles": [
+        "micro-interactions-demo.tsx"
+      ],
+      "remainingGaps": [
+        "Sélecteur police taille couleur non présents",
+        "Tooltip existe sans raccourci"
+      ],
+      "visualPass": false
+    },
+    {
+      "media": "../06-bookmarks-x-20260915/media/2065117631796154769/01.jpg",
+      "scope": "catalogue-associe",
+      "inspection": "image-statique-vue",
+      "observedComponents": [
+        "Champ prompt",
+        "Ajouter",
+        "Mode search",
+        "Mode computer et badge"
+      ],
+      "implementationFiles": [
+        "prompt-demo.tsx"
+      ],
+      "remainingGaps": [],
+      "visualPass": false
+    },
+    {
+      "media": "../06-bookmarks-x-20260915/media/2099121946437071193/02.jpg",
+      "scope": "analyse-08",
+      "inspection": "image-statique-vue",
+      "observedComponents": [
+        "Sidebar",
+        "Breadcrumb",
+        "Tabs",
+        "Filtres",
+        "Table",
+        "Cellule domaine lien",
+        "Anneau statut",
+        "Portrait fondateur"
+      ],
+      "implementationFiles": [
+        "navigation-demo.tsx",
+        "advanced-table.tsx"
+      ],
+      "remainingGaps": [
+        "Cellule domaine et anneau statut absents"
+      ],
+      "visualPass": false
+    },
+    {
+      "media": "../06-bookmarks-x-20260915/media/2054894022066602304/01.jpg",
+      "scope": "analyse-08",
+      "inspection": "image-statique-vue",
+      "observedComponents": [
+        "Jauges segmentées",
+        "Courbes multiples",
+        "Carte insight"
+      ],
+      "implementationFiles": [
+        "charts-extra.tsx",
+        "charts-demo.tsx"
+      ],
+      "remainingGaps": [],
+      "visualPass": false
+    },
+    {
+      "media": "../04-collecte-locale-20260915/images/local-035.jpeg",
+      "scope": "analyse-08",
+      "inspection": "image-statique-vue",
+      "observedComponents": [
+        "Stepper import",
+        "Dropzone fichier",
+        "Carte télécharger modèle CSV"
+      ],
+      "implementationFiles": [
+        "import-demo.tsx"
+      ],
+      "remainingGaps": [
+        "Carte téléchargement modèle absente: exemple chargé seulement"
+      ],
+      "visualPass": false
+    },
+    {
+      "media": "../06-bookmarks-x-20260915/media/2082486176074829875/03.jpg",
+      "scope": "analyse-08",
+      "inspection": "image-statique-vue",
+      "observedComponents": [
+        "Contrôle segmenté liste kanban avec relief"
+      ],
+      "implementationFiles": [
+        "view-selector.tsx"
+      ],
+      "remainingGaps": [],
+      "visualPass": false
+    },
+    {
+      "media": "../06-bookmarks-x-20260915/media/2094787302967169266/02.jpg",
+      "scope": "analyse-08",
+      "inspection": "image-statique-vue",
+      "observedComponents": [
+        "Sept badges statut iconés pastels"
+      ],
+      "implementationFiles": [
+        "status-badge.tsx"
+      ],
+      "remainingGaps": [],
+      "visualPass": false
+    },
+    {
+      "media": "../06-bookmarks-x-20260915/media/2092991035244958195/03.jpg",
+      "scope": "analyse-08",
+      "inspection": "image-statique-vue",
+      "observedComponents": [
+        "KPI valeur delta",
+        "Séparateur pointillé",
+        "Progression hachurée"
+      ],
+      "implementationFiles": [
+        "kpi-card.tsx"
+      ],
+      "remainingGaps": [],
+      "visualPass": false
+    },
+    {
+      "media": "../06-bookmarks-x-20260915/media/2092991035244958195/02.jpg",
+      "scope": "analyse-08",
+      "inspection": "image-statique-vue",
+      "observedComponents": [
+        "Courbe fine points creux",
+        "Aire légère",
+        "Grille pointillée",
+        "Période compacte"
+      ],
+      "implementationFiles": [
+        "charts-demo.tsx"
+      ],
+      "remainingGaps": [],
+      "visualPass": false
+    },
+    {
+      "media": "../01-dashboards/loopmetrics-marketing-orange.jpg",
+      "scope": "analyse-08",
+      "inspection": "image-statique-vue",
+      "observedComponents": [
+        "Barres orange profondeur",
+        "Capacité pâle",
+        "Navigation",
+        "Courbes comparées"
+      ],
+      "implementationFiles": [
+        "charts-extra.tsx",
+        "navigation-demo.tsx"
+      ],
+      "remainingGaps": [
+        "Sélection antérieure limitée barres orange et sidebar: autres éléments exploratoires"
+      ],
+      "visualPass": false
+    },
+    {
+      "media": "../06-bookmarks-x-20260915/media/2080638654842827228/01.jpg",
+      "scope": "analyse-08",
+      "inspection": "image-statique-vue",
+      "observedComponents": [
+        "Pièce jointe DOCX",
+        "Prompt",
+        "Pills sources"
+      ],
+      "implementationFiles": [
+        "prompt-demo.tsx"
+      ],
+      "remainingGaps": [],
+      "visualPass": false
+    },
+    {
+      "media": "../06-bookmarks-x-20260915/media/2080638654842827228/02.jpg",
+      "scope": "analyse-08",
+      "inspection": "image-statique-vue",
+      "observedComponents": [
+        "Quatre cartes actions Create Find Research Code"
+      ],
+      "implementationFiles": [
+        "prompt-demo.tsx"
+      ],
+      "remainingGaps": [],
+      "visualPass": false
+    },
+    {
+      "media": "../04-collecte-locale-20260915/images/local-021.jpeg",
+      "scope": "analyse-08",
+      "inspection": "image-statique-vue",
+      "observedComponents": [
+        "Timeline horaire",
+        "Barres durée",
+        "Barre hachurée",
+        "Ghost position initiale",
+        "Switch masquer"
+      ],
+      "implementationFiles": [
+        "planning-demo.tsx"
+      ],
+      "remainingGaps": [
+        "Ghost/hachure à vérifier visuellement"
+      ],
+      "visualPass": false
+    },
+    {
+      "media": "../08-analyse-composants-20260915/motion/upload/04.75s.jpg",
+      "scope": "analyse-08",
+      "inspection": "image-statique-vue",
+      "observedComponents": [
+        "Carte XLSX",
+        "Progression couleur",
+        "Pause",
+        "Annuler",
+        "Taille transférée"
+      ],
+      "implementationFiles": [
+        "upload-card.tsx"
+      ],
+      "remainingGaps": [
+        "Une frame seulement: motion non réévaluée"
+      ],
+      "visualPass": false
+    },
+    {
+      "media": "../08-analyse-composants-20260915/motion/kanban/00.00s.jpg",
+      "scope": "analyse-08",
+      "inspection": "image-statique-vue",
+      "observedComponents": [
+        "Colonne étape compteur somme ajout",
+        "Carte deal portrait",
+        "Probabilité",
+        "Localisation région",
+        "Date",
+        "Montant",
+        "Statut"
+      ],
+      "implementationFiles": [
+        "kanban-demo.tsx"
+      ],
+      "remainingGaps": [
+        "Une frame seulement: motion non réévaluée"
+      ],
+      "visualPass": false
+    },
+    {
+      "media": "../06-bookmarks-x-20260915/media/2095855961781019129/01.jpg",
+      "scope": "analyse-08",
+      "inspection": "image-statique-vue",
+      "observedComponents": [
+        "Projection",
+        "Montants départ arrivée",
+        "Histogramme progressif",
+        "Contribution",
+        "Horizon",
+        "CTA"
+      ],
+      "implementationFiles": [
+        "simulation-demo.tsx"
+      ],
+      "remainingGaps": [],
+      "visualPass": false
+    },
+    {
+      "media": "../06-bookmarks-x-20260915/media/2095040379968262189/01.jpg",
+      "scope": "catalogue-exploratoire-A-M",
+      "inspection": "image-statique-vue",
+      "observedComponents": [
+        "Composer email",
+        "Destinataires pills portrait supprimables",
+        "Cc Bcc",
+        "Pièces jointes",
+        "Toolbar",
+        "Bouton envoi scindé"
+      ],
+      "implementationFiles": [
+        "prompt-demo.tsx"
+      ],
+      "remainingGaps": [
+        "Composer email et champ destinataires absents",
+        "Split button absent"
+      ],
+      "visualPass": false
+    },
+    {
+      "media": "../06-bookmarks-x-20260915/media/2097699922871013794/01.jpg",
+      "scope": "catalogue-exploratoire-A-M",
+      "inspection": "image-statique-vue",
+      "observedComponents": [
+        "Graphe dépendances branché",
+        "Chemin actif",
+        "Zoom fit",
+        "Inspecteur noeud",
+        "Légende liens",
+        "Recherche"
+      ],
+      "implementationFiles": [
+        "workflow-demo.tsx"
+      ],
+      "remainingGaps": [
+        "Canvas graphe branché et zoom absents de version3noeuds"
+      ],
+      "visualPass": false
+    },
+    {
+      "media": "../06-bookmarks-x-20260915/media/2094077444525563985/01.png",
+      "scope": "catalogue-exploratoire-A-M",
+      "inspection": "image-statique-vue",
+      "observedComponents": [
+        "KPI",
+        "Courbe points creux",
+        "Barres hachurées",
+        "Période"
+      ],
+      "implementationFiles": [
+        "kpi-card.tsx",
+        "charts-demo.tsx"
+      ],
+      "remainingGaps": [],
+      "visualPass": false
+    },
+    {
+      "media": "../04-collecte-locale-20260915/images/local-022.jpeg",
+      "scope": "catalogue-exploratoire-A-M",
+      "inspection": "image-statique-vue",
+      "observedComponents": [
+        "Formulaire",
+        "Radio client société",
+        "Input entreprise"
+      ],
+      "implementationFiles": [
+        "forms-demo.tsx"
+      ],
+      "remainingGaps": [],
+      "visualPass": false
+    },
+    {
+      "media": "../06-bookmarks-x-20260915/media/2079628240944263565/01.png",
+      "scope": "catalogue-exploratoire-A-M",
+      "inspection": "image-statique-vue",
+      "observedComponents": [
+        "Sidebar",
+        "Hero connexion appareil",
+        "Liste bénéfices icônés"
+      ],
+      "implementationFiles": [
+        "navigation-demo.tsx"
+      ],
+      "remainingGaps": [
+        "Carte onboarding connexion appareil sans version distincte",
+        "Aucun QR ni état appairé observable"
+      ],
+      "visualPass": false
+    },
+    {
+      "media": "../06-bookmarks-x-20260915/media/2095762465854558696/01.jpg",
+      "scope": "catalogue-exploratoire-A-M",
+      "inspection": "image-statique-vue",
+      "observedComponents": [
+        "Sidebar canaux",
+        "Messages avatar",
+        "Réaction emoji compteur",
+        "Avatar stack réponses",
+        "Pièces jointes",
+        "Composer"
+      ],
+      "implementationFiles": [
+        "prompt-demo.tsx",
+        "team-activity.tsx"
+      ],
+      "remainingGaps": [
+        "Version activité/mentions/réactions ajoutée, contrôle visuel restant"
+      ],
+      "visualPass": false
+    },
+    {
+      "media": "../04-collecte-locale-20260915/images/local-009.jpeg",
+      "scope": "catalogue-exploratoire-A-M",
+      "inspection": "image-statique-vue",
+      "observedComponents": [
+        "Dialogue facture",
+        "Métadonnées facture",
+        "Table lignes",
+        "Sous-total taxe total",
+        "Export payer modifier méthode"
+      ],
+      "implementationFiles": [
+        "panels-demo.tsx"
+      ],
+      "remainingGaps": [
+        "Composition facture et tableau total absent"
+      ],
+      "visualPass": false
+    },
+    {
+      "media": "../06-bookmarks-x-20260915/media/2092485643897053452/01.jpg",
+      "scope": "catalogue-exploratoire-A-M",
+      "inspection": "image-statique-vue",
+      "observedComponents": [
+        "Timeline activité équipe",
+        "Mentions",
+        "Citation",
+        "Compteur réponses avec avatars",
+        "Approbation accès",
+        "Cartes événement empilées"
+      ],
+      "implementationFiles": [
+        "workflow-demo.tsx",
+        "agenda-cards.tsx",
+        "team-activity.tsx"
+      ],
+      "remainingGaps": [
+        "Version activité/mentions/réactions ajoutée, contrôle visuel restant"
+      ],
+      "visualPass": false
+    },
+    {
+      "media": "../06-bookmarks-x-20260915/media/2093639967079829706/01.jpg",
+      "scope": "catalogue-exploratoire-A-M",
+      "inspection": "image-statique-vue",
+      "observedComponents": [
+        "Dialogue création dossier",
+        "Nom description",
+        "Tags",
+        "Accès privé équipe lien",
+        "Footer annuler créer"
+      ],
+      "implementationFiles": [
+        "forms-demo.tsx",
+        "panels-demo.tsx"
+      ],
+      "remainingGaps": [
+        "Primitives présentes composition dossier non réunie"
+      ],
+      "visualPass": false
+    },
+    {
+      "media": "../04-collecte-locale-20260915/images/local-076.png",
+      "scope": "catalogue-exploratoire-A-M",
+      "inspection": "image-statique-vue",
+      "observedComponents": [
+        "Carte colis",
+        "Métadonnées3colonnes",
+        "Timeline points et dates"
+      ],
+      "implementationFiles": [
+        "workflow-demo.tsx"
+      ],
+      "remainingGaps": [
+        "Variante timeline livraison peut réutiliser journal"
+      ],
+      "visualPass": false
+    },
+    {
+      "media": "../06-bookmarks-x-20260915/media/2060625519771815985/01.png",
+      "scope": "catalogue-exploratoire-A-M",
+      "inspection": "image-statique-vue",
+      "observedComponents": [
+        "Carte action bloquée",
+        "Badge cause",
+        "Réparer",
+        "Détails logs scrollables"
+      ],
+      "implementationFiles": [
+        "work-cards-demo.tsx"
+      ],
+      "remainingGaps": [
+        "Carte erreur récupérable avec logs dépliables absente"
+      ],
+      "visualPass": false
+    },
+    {
+      "media": "../04-collecte-locale-20260915/images/local-092.webp",
+      "scope": "catalogue-exploratoire-A-M",
+      "inspection": "image-statique-vue",
+      "observedComponents": [
+        "Carte propriété image montant statut",
+        "Checklist étapes liens",
+        "CTA"
+      ],
+      "implementationFiles": [
+        "work-cards-demo.tsx"
+      ],
+      "remainingGaps": [
+        "Variante propriété checklist à réunir"
+      ],
+      "visualPass": false
+    },
+    {
+      "media": "../06-bookmarks-x-20260915/media/2095732566968119645/01.jpg",
+      "scope": "catalogue-exploratoire-A-M",
+      "inspection": "image-statique-vue",
+      "observedComponents": [
+        "Date strip cinq jours navigation",
+        "Tabs",
+        "Carte événement",
+        "Multi-assignees pills",
+        "Éditeur",
+        "Rappel durée unité",
+        "Liste notes cases"
+      ],
+      "implementationFiles": [
+        "planning-demo.tsx",
+        "forms-demo.tsx",
+        "micro-interactions-demo.tsx",
+        "date-strip-demo.tsx"
+      ],
+      "remainingGaps": [
+        "Date strip et multi-assignees ajoutés;durée unité et éditeur restent variantes"
+      ],
+      "visualPass": false
+    },
+    {
+      "media": "../06-bookmarks-x-20260915/media/2095112501403025821/01.jpg",
+      "scope": "catalogue-exploratoire-A-M",
+      "inspection": "image-statique-vue",
+      "observedComponents": [
+        "Dialogue variable",
+        "Nom aide",
+        "Cartes radio type texte nombre",
+        "Valeur défaut",
+        "Raccourcis footer"
+      ],
+      "implementationFiles": [
+        "forms-demo.tsx"
+      ],
+      "remainingGaps": [
+        "Carte radio avec description et icône non présente"
+      ],
+      "visualPass": false
+    },
+    {
+      "media": "../06-bookmarks-x-20260915/media/2084947115751403729/01.jpg",
+      "scope": "catalogue-exploratoire-A-M",
+      "inspection": "image-statique-vue",
+      "observedComponents": [
+        "Canvas workflow branche if else",
+        "Inspecteur prompt permissions",
+        "Sélecteur modèle",
+        "Outputs dynamiques",
+        "Code panel"
+      ],
+      "implementationFiles": [
+        "workflow-demo.tsx"
+      ],
+      "remainingGaps": [
+        "Branche conditionnelle absente",
+        "Inspecteur outputs typés absent"
+      ],
+      "visualPass": false
+    },
+    {
+      "media": "../06-bookmarks-x-20260915/media/2095425859301863786/01.png",
+      "scope": "catalogue-exploratoire-A-M",
+      "inspection": "image-statique-vue",
+      "observedComponents": [
+        "Sidebar",
+        "Sélecteur espace",
+        "KPI delta",
+        "Courbe"
+      ],
+      "implementationFiles": [
+        "navigation-demo.tsx",
+        "charts-demo.tsx"
+      ],
+      "remainingGaps": [
+        "Sélecteur espace compact à ajouter si non couvert"
+      ],
+      "visualPass": false
+    },
+    {
+      "media": "../01-dashboards/medilab-patients.jpg",
+      "scope": "catalogue-exploratoire-A-M",
+      "inspection": "image-statique-vue",
+      "observedComponents": [
+        "KPI avec delta et lien footer",
+        "Barres3séries",
+        "Radar2séries",
+        "Table personnes portrait statut"
+      ],
+      "implementationFiles": [
+        "charts-demo.tsx",
+        "advanced-table.tsx"
+      ],
+      "remainingGaps": [
+        "Radar et comparaison séries à rapprocher du lot graphes"
+      ],
+      "visualPass": false
+    },
+    {
+      "media": "../04-collecte-locale-20260915/images/local-031.jpeg",
+      "scope": "catalogue-exploratoire",
+      "inspection": "image-statique-vue",
+      "observedComponents": [
+        "Cartes personnes identité description",
+        "3métriques note nombre taux",
+        "Contacts footer",
+        "Leaderboard rang portrait métriques",
+        "Table certifications statut expiration",
+        "Cartes incidents résolus"
+      ],
+      "implementationFiles": [
+        "directory-demo.tsx:DirectoryDemo",
+        "advanced-table.tsx"
+      ],
+      "remainingGaps": [
+        "Cartes répertoire implémentées contrôle visuel restant",
+        "Classement rang et certification sont variantes table non composées"
+      ],
+      "visualPass": false
+    },
+    {
+      "media": "../06-bookmarks-x-20260915/media/2098709936977178945/01.jpg",
+      "scope": "catalogue-exploratoire-A-M",
+      "inspection": "image-statique-vue",
+      "observedComponents": [
+        "Timeline agents",
+        "Blocs tâches",
+        "Statuts santé",
+        "Cartes prochaines étapes",
+        "Prompt et suggestions"
+      ],
+      "implementationFiles": [
+        "planning-demo.tsx",
+        "prompt-demo.tsx"
+      ],
+      "remainingGaps": [
+        "Variante Gantt agents avec ligne temps courant"
+      ],
+      "visualPass": false
+    },
+    {
+      "media": "../06-bookmarks-x-20260915/media/2092250905655812121/01.jpg",
+      "scope": "catalogue-exploratoire-A-M",
+      "inspection": "image-statique-vue",
+      "observedComponents": [
+        "Condition builder If And",
+        "Chips attribut opérateur valeur",
+        "Carte insight paginée",
+        "Graphique2séries",
+        "CTA question"
+      ],
+      "implementationFiles": [
+        "workflow-demo.tsx",
+        "charts-demo.tsx",
+        "insight-cards-demo.tsx"
+      ],
+      "remainingGaps": [
+        "CTA prépare seulement une question locale"
+      ],
+      "visualPass": false,
+      "codeStatus": "version-locale-build-passe-visuel-a-verifier"
+    },
+    {
+      "media": "../06-bookmarks-x-20260915/media/2058850571692732712/01.jpg",
+      "scope": "catalogue-exploratoire-A-M",
+      "inspection": "image-statique-vue",
+      "observedComponents": [
+        "Inbox liste sélectionnée",
+        "État lu",
+        "Panneau conversation",
+        "Toolbar actions",
+        "Pièces jointes"
+      ],
+      "implementationFiles": [
+        "prompt-demo.tsx",
+        "inbox-demo.tsx"
+      ],
+      "remainingGaps": [
+        "Pièces jointes fictives ; brouillons uniquement locaux"
+      ],
+      "visualPass": false,
+      "codeStatus": "version-locale-build-passe-visuel-a-verifier"
+    },
+    {
+      "media": "../06-bookmarks-x-20260915/media/2093714805169553548/01.jpg",
+      "scope": "catalogue-exploratoire-A-M",
+      "inspection": "image-statique-vue",
+      "observedComponents": [
+        "Carte média",
+        "Icône décorative",
+        "Titre et état édité"
+      ],
+      "implementationFiles": [],
+      "remainingGaps": [
+        "Décoration et recadrage partiel ne justifient pas famille métier"
+      ],
+      "visualPass": false
+    },
+    {
+      "media": "../04-collecte-locale-20260915/images/local-027.jpeg",
+      "scope": "catalogue-exploratoire-A-M",
+      "inspection": "image-statique-vue",
+      "observedComponents": [
+        "Calendrier semaine",
+        "Événements colorés",
+        "Weekends hachurés",
+        "Navigation période",
+        "Tabs vue"
+      ],
+      "implementationFiles": [
+        "planning-demo.tsx"
+      ],
+      "remainingGaps": [
+        "Vérifier week-end et en-tête heure différencié"
+      ],
+      "visualPass": false
+    },
+    {
+      "media": "../06-bookmarks-x-20260915/media/2095955237114609917/01.jpg",
+      "scope": "catalogue-exploratoire-A-M",
+      "inspection": "image-statique-vue",
+      "observedComponents": [
+        "KPI sparklines",
+        "Courbes2séries",
+        "Heatmap chiffrée",
+        "Donut segments continus",
+        "Filtres période"
+      ],
+      "implementationFiles": [
+        "charts-extra.tsx",
+        "comparison-charts.tsx"
+      ],
+      "remainingGaps": [
+        "Donut continu diffère du segmenté50unités",
+        "Heatmap peut afficher nombres"
+      ],
+      "visualPass": false
+    },
+    {
+      "media": "../06-bookmarks-x-20260915/media/2094400390288785585/01.jpg",
+      "scope": "catalogue-exploratoire-A-M",
+      "inspection": "image-statique-vue",
+      "observedComponents": [
+        "Dialogue création",
+        "Champ avec aide",
+        "Footer annuler créer et raccourci"
+      ],
+      "implementationFiles": [
+        "forms-demo.tsx",
+        "panels-demo.tsx"
+      ],
+      "remainingGaps": [
+        "Variante dialogue simple"
+      ],
+      "visualPass": false
+    },
+    {
+      "media": "../06-bookmarks-x-20260915/media/2098788494005207498/02.jpg",
+      "scope": "catalogue-exploratoire-A-M",
+      "inspection": "image-statique-vue",
+      "observedComponents": [
+        "Sidebar sections priorités",
+        "Carte actions à approuver",
+        "Choix alternatif",
+        "Liste métriques changées",
+        "Progression onboarding"
+      ],
+      "implementationFiles": [
+        "work-cards-demo.tsx",
+        "navigation-demo.tsx"
+      ],
+      "remainingGaps": [
+        "Carte métriques modifiées peut être composition tableau clé valeur"
+      ],
+      "visualPass": false
+    },
+    {
+      "media": "../02-composants/checkout-editeur.webp",
+      "scope": "catalogue-exploratoire-A-M",
+      "inspection": "image-statique-vue",
+      "observedComponents": [
+        "Palette champs",
+        "Insertion drag drop",
+        "Sections formulaire",
+        "Panneau Form Rules",
+        "Preview publication"
+      ],
+      "implementationFiles": [
+        "forms-demo.tsx",
+        "form-builder-demo.tsx"
+      ],
+      "remainingGaps": [
+        "Palette clic ; réordonnancement drag boutons ; règles non observées"
+      ],
+      "visualPass": false,
+      "codeStatus": "version-locale-build-passe-visuel-a-verifier"
+    },
+    {
+      "media": "../02-composants/arios-assistant.png",
+      "scope": "catalogue-exploratoire-A-M",
+      "inspection": "image-statique-vue",
+      "observedComponents": [
+        "Prompt",
+        "Modes attach info speak",
+        "Suggestions cartes",
+        "Récents pills",
+        "Crédits"
+      ],
+      "implementationFiles": [
+        "prompt-demo.tsx"
+      ],
+      "remainingGaps": [
+        "Saisie vocale non implémentée: bouton seul visible"
+      ],
+      "visualPass": false
+    },
+    {
+      "media": "../06-bookmarks-x-20260915/media/2095077867381981411/01.jpg",
+      "scope": "catalogue-exploratoire-A-M",
+      "inspection": "image-statique-vue",
+      "observedComponents": [
+        "KPI",
+        "Barres comparées",
+        "Carte bancaire masquée et révélation",
+        "Solde",
+        "Transactions",
+        "Activité"
+      ],
+      "implementationFiles": [
+        "charts-demo.tsx",
+        "advanced-table.tsx",
+        "team-activity.tsx",
+        "payment-card-demo.tsx"
+      ],
+      "remainingGaps": [
+        "Fixture bancaire sans opération réelle"
+      ],
+      "visualPass": false,
+      "codeStatus": "version-locale-build-passe-visuel-a-verifier"
+    },
+    {
+      "media": "../06-bookmarks-x-20260915/media/2095168656875597871/01.jpg",
+      "scope": "catalogue-exploratoire-A-M",
+      "inspection": "image-statique-vue",
+      "observedComponents": [
+        "Sidebar",
+        "Liste indices drapeaux variation",
+        "KPI",
+        "Barres",
+        "Transactions iconées",
+        "Carte intégrations"
+      ],
+      "implementationFiles": [
+        "navigation-demo.tsx",
+        "charts-demo.tsx",
+        "agent-catalog-demo.tsx"
+      ],
+      "remainingGaps": [
+        "Liste indices variante liste compacte"
+      ],
+      "visualPass": false
+    },
+    {
+      "media": "../04-collecte-locale-20260915/images/local-013.jpeg",
+      "scope": "catalogue-exploratoire-A-M",
+      "inspection": "image-statique-vue",
+      "observedComponents": [
+        "Liste ressources",
+        "Icônes bicolores",
+        "Description secondaire"
+      ],
+      "implementationFiles": [
+        "navigation-demo.tsx"
+      ],
+      "remainingGaps": [
+        "Variante liste et style icônes"
+      ],
+      "visualPass": false
+    },
+    {
+      "media": "../04-collecte-locale-20260915/images/local-014.jpeg",
+      "scope": "catalogue-exploratoire-A-M",
+      "inspection": "image-statique-vue",
+      "observedComponents": [
+        "Champ recherche raccourci",
+        "Bouton notification point",
+        "Avatar",
+        "CTA"
+      ],
+      "implementationFiles": [
+        "navigation-demo.tsx",
+        "micro-interactions-demo.tsx"
+      ],
+      "remainingGaps": [
+        "Pas de contenu notification observable"
+      ],
+      "visualPass": false
+    },
+    {
+      "media": "../04-collecte-locale-20260915/images/local-012.jpeg",
+      "scope": "catalogue-exploratoire-A-M",
+      "inspection": "image-statique-vue",
+      "observedComponents": [
+        "Badge alerte",
+        "Quota progression critique"
+      ],
+      "implementationFiles": [
+        "work-cards-demo.tsx",
+        "kpi-card.tsx"
+      ],
+      "remainingGaps": [
+        "Variante quota critique"
+      ],
+      "visualPass": false
+    },
+    {
+      "media": "../06-bookmarks-x-20260915/media/2092627892270403854/01.jpg",
+      "scope": "catalogue-exploratoire-A-M",
+      "inspection": "image-statique-vue",
+      "observedComponents": [
+        "Détail intégration connectée",
+        "Table compteurs synchronisation",
+        "Liste stores",
+        "Permissions descriptions",
+        "Sidebar"
+      ],
+      "implementationFiles": [
+        "agent-catalog-demo.tsx",
+        "permissions-demo.tsx"
+      ],
+      "remainingGaps": [
+        "Détail intégration sync et permissions absent en composition"
+      ],
+      "visualPass": false
+    },
+    {
+      "media": "../06-bookmarks-x-20260915/media/2098784334383915025/01-frames-contact.jpg",
+      "sourceVideo": "../06-bookmarks-x-20260915/media/2098784334383915025/01.mp4",
+      "scope": "catalogue-exploratoire-A-M",
+      "inspection": "planche8frames-vue",
+      "observedComponents": [
+        "Chandeliers+volumes",
+        "Order book",
+        "Aire empilée",
+        "Barres empilées",
+        "Composite barres courbe"
+      ],
+      "implementationFiles": [
+        "charts-demo.tsx"
+      ],
+      "remainingGaps": [
+        "Nouvelles familles transmises agent graphes"
+      ],
+      "visualPass": false
+    },
+    {
+      "media": "../06-bookmarks-x-20260915/media/2098398204232663186/01-frames-contact.jpg",
+      "sourceVideo": "../06-bookmarks-x-20260915/media/2098398204232663186/01.mp4",
+      "scope": "catalogue-exploratoire-A-M",
+      "inspection": "planche8frames-vue",
+      "observedComponents": [
+        "Table paiements",
+        "Table factures",
+        "Clé API masquée",
+        "Audit log",
+        "Déploiements",
+        "Watchlist sparkline",
+        "Inventaire barre stock"
+      ],
+      "implementationFiles": [
+        "advanced-table.tsx"
+      ],
+      "remainingGaps": [
+        "Clé API masquée+copie variante cellule manquante"
+      ],
+      "visualPass": false
+    },
+    {
+      "media": "../06-bookmarks-x-20260915/media/2080225836242739494/01-frames-contact.jpg",
+      "sourceVideo": "../06-bookmarks-x-20260915/media/2080225836242739494/01.mp4",
+      "scope": "catalogue-exploratoire-A-M",
+      "inspection": "planche8frames-vue",
+      "observedComponents": [
+        "Boutons morph",
+        "Copie",
+        "Share",
+        "Mic",
+        "Theme",
+        "Like",
+        "Icones animées"
+      ],
+      "implementationFiles": [
+        "micro-interactions-demo.tsx"
+      ],
+      "remainingGaps": [
+        "Animation précise non évaluée par planche"
+      ],
+      "visualPass": false
+    },
+    {
+      "media": "../06-bookmarks-x-20260915/media/2094719194302706136/01-frames-contact.jpg",
+      "sourceVideo": "../06-bookmarks-x-20260915/media/2094719194302706136/01.mp4",
+      "scope": "catalogue-exploratoire-A-M",
+      "inspection": "planche8frames-vue",
+      "observedComponents": [
+        "Distribution points",
+        "Cluster",
+        "Donut rayons variables",
+        "Bubbles par année",
+        "Arbre",
+        "Doubleaxe",
+        "Barres horizontales"
+      ],
+      "implementationFiles": [
+        "charts-demo.tsx"
+      ],
+      "remainingGaps": [
+        "Familles distinctes transmises agent graphes"
+      ],
+      "visualPass": false
+    },
+    {
+      "media": "../06-bookmarks-x-20260915/media/2098784334383915025/01-frames/027.04s.jpg",
+      "sourceVideo": "../06-bookmarks-x-20260915/media/2098784334383915025/01.mp4",
+      "scope": "catalogue-exploratoire-A-M",
+      "inspection": "frame-pleine-taille-vue",
+      "observedComponents": [
+        "Orderbook prix quantité total",
+        "Profondeur cumulée rouge verte",
+        "Ligne spread"
+      ],
+      "implementationFiles": [],
+      "remainingGaps": [
+        "Orderbook absence confirmée à audit"
+      ],
+      "visualPass": false
+    },
+    {
+      "media": "../06-bookmarks-x-20260915/media/2094719194302706136/01-frames/033.35s.jpg",
+      "sourceVideo": "../06-bookmarks-x-20260915/media/2094719194302706136/01.mp4",
+      "scope": "catalogue-exploratoire-A-M",
+      "inspection": "frame-pleine-taille-vue",
+      "observedComponents": [
+        "Matrice bubbles par année",
+        "Surface code volume",
+        "Noyau escalade",
+        "Anneau beta",
+        "Légende"
+      ],
+      "implementationFiles": [],
+      "remainingGaps": [
+        "Bubblematrix absence confirmée à audit"
+      ],
+      "visualPass": false
+    },
+    {
+      "media": "../06-bookmarks-x-20260915/media/2098042196624826707/01-frames/006.01s.jpg",
+      "scope": "catalogue-exploratoire-A-M",
+      "inspection": "frame-pleine-taille-vue",
+      "observedComponents": [
+        "Chemin handoff métriques",
+        "Comparaison contexte transmis requis",
+        "Champs manquants",
+        "Volume payload baseline",
+        "Runs récents"
+      ],
+      "implementationFiles": [
+        "agent-diagnostics-demo.tsx"
+      ],
+      "remainingGaps": [
+        "Inspecteur anomalies simplifié ; pas historique réel"
+      ],
+      "visualPass": false
+    },
+    {
+      "media": "../06-bookmarks-x-20260915/media/2098668191446921472/01.jpg",
+      "scope": "catalogue-exploratoire-A-M",
+      "inspection": "image-statique-vue",
+      "observedComponents": [
+        "Réseau agents",
+        "Anomalie boucle",
+        "Perte contexte",
+        "Inspecteur six métriques",
+        "Champs requis",
+        "Filtres anomalies",
+        "Zoom"
+      ],
+      "implementationFiles": [
+        "agent-diagnostics-demo.tsx"
+      ],
+      "remainingGaps": [
+        "Live handoff feed et sous-graphe complet de référence non repris ; pas live réel"
+      ],
+      "visualPass": false
+    },
+    {
+      "media": "../06-bookmarks-x-20260915/media/2094277575036305567/01-frames/006.20s.jpg",
+      "scope": "catalogue-exploratoire-N-Z",
+      "inspection": "frame-pleine-taille-vue",
+      "observedComponents": [
+        "Footer Calculate par colonne",
+        "Table sociétés",
+        "Avatar responsable",
+        "Multi-tags",
+        "KPI au-dessus table"
+      ],
+      "implementationFiles": [
+        "advanced-table.tsx",
+        "column-table.tsx"
+      ],
+      "remainingGaps": [
+        "Menu fermé source : options exactes non observées ; implémentation locale somme moyenne min max sur montant"
+      ],
+      "visualPass": false
+    }
+  ]
+}

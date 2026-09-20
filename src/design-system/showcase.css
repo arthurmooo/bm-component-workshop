@@ -1,0 +1,15 @@
+body{margin:0;background:var(--bm-canvas)}
+.ds-page{max-width:1080px;margin:auto;padding:48px 28px;display:flex;flex-direction:column;gap:var(--bm-space-5)}
+.ds-page-header{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;margin-bottom:8px}
+.ds-page-header small{font-size:var(--bm-text-caption);letter-spacing:1.4px;color:var(--bm-ink-secondary)}
+.ds-page-header h1{font-size:28px;letter-spacing:-.7px;font-weight:550;margin:12px 0}
+.ds-page-header p{line-height:1.7;color:var(--bm-ink-secondary);max-width:530px;margin:0}
+.ds-page-header a{color:var(--bm-ink-secondary);font-size:var(--bm-text-small);text-decoration:none;white-space:nowrap}
+.ds-metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--bm-space-4)}
+.ds-filters{display:grid;grid-template-columns:1fr 220px;gap:var(--bm-space-4);margin-bottom:var(--bm-space-5);align-items:start}
+.ds-filters .app-select{min-height:var(--bm-control-lg)}
+.ds-details{padding-top:var(--bm-space-4);line-height:1.7;color:var(--bm-ink-secondary)}
+.ds-actions{margin-top:var(--bm-space-5)}
+.ds-actions .button{min-width:164px}
+.ds-page>footer{color:var(--bm-ink-muted);font-size:var(--bm-text-caption);text-align:center;line-height:1.8}
+@media(max-width:640px){.ds-page{padding:24px 16px}.ds-metrics,.ds-filters{grid-template-columns:1fr}.ds-page-header{flex-direction:column}.ds-page-header h1{font-size:24px}.bm-card{padding:var(--bm-space-4)}}

@@ -1,0 +1,15 @@
+.bm-shared-chart{min-width:0;width:100%}.bm-shared-chart .bm-chart-plot{padding-top:18px}.bm-shared-chart .bm-chart-legend{margin-bottom:0}.bm-shared-chart .bm-donut-total{font-size:32px;fill:var(--bm-ink);font-weight:500;letter-spacing:-1px}.bm-shared-chart .bm-donut-layout svg{font-size:10px;fill:var(--bm-ink-secondary)}.bm-shared-chart .bm-donut-layout{min-height:245px}.bm-shared-chart .bm-chart-point:focus-visible{outline:none}.bm-shared-chart .bm-chart-point:focus-visible rect{filter:brightness(.75)}.bm-shared-chart .bm-donut-legend button:focus-visible{outline-color:var(--bm-focus)}@media(max-width:600px){.bm-shared-chart .bm-donut-layout{flex-direction:column}.bm-shared-chart .bm-donut-layout svg{width:65%}.bm-shared-chart .bm-donut-legend{width:100%}}
+
+.bm-shared-chart .bm-chart-plot[data-compact=true]{padding-top:0}.bm-shared-chart .bm-chart-plot[data-compact=true] svg{height:220px}.bm-shared-chart .bm-chart-plot[data-compact=true] text{font-size:10px}
+
+.bm-shared-chart .bm-donut-layout[data-compact=true]{min-height:220px;gap:16px}.bm-shared-chart .bm-donut-layout[data-compact=true] svg{height:180px;width:46%}.bm-shared-chart .bm-donut-layout[data-compact=true] .bm-donut-legend{gap:6px}@media(max-width:600px){.bm-shared-chart .bm-donut-layout[data-compact=true] svg{width:100%}}
+
+.bm-shared-chart .bm-donut-layout[data-compact=true]{flex-wrap:wrap;min-height:220px}.bm-shared-chart .bm-donut-layout[data-compact=true] svg{flex:1 1 110px;min-width:110px;max-width:230px}.bm-shared-chart .bm-donut-layout[data-compact=true] .bm-donut-legend{flex:1 1 135px}.bm-shared-chart .bm-trend-plot svg{width:100%;height:210px;display:block}.bm-shared-chart .bm-trend-plot text{font-size:10px;fill:var(--bm-ink-secondary)}
+
+.bm-shared-chart .bm-donut-layout[data-compact=true]{display:grid;grid-template-columns:minmax(130px,54%) minmax(0,1fr);gap:14px;align-items:center}.bm-shared-chart .bm-donut-layout[data-compact=true] svg{width:100%;min-width:0;max-width:none;height:auto;aspect-ratio:1}.bm-shared-chart .bm-donut-layout[data-compact=true] .bm-donut-legend{min-width:0}.bm-shared-chart .bm-donut-layout[data-compact=true] .bm-donut-legend button{font-size:11px;padding:6px 0;gap:6px}.bm-shared-chart .bm-donut-legend button span{min-width:0}
+
+.bm-shared-chart .bm-donut-legend button{text-align:left}
+
+.bm-pipeline-chart[data-compact=true] .bm-chart-summary{min-height:28px;margin-bottom:4px}.bm-pipeline-chart[data-compact=true] .bm-chart-summary strong{font-size:24px;letter-spacing:-.7px}.bm-pipeline-chart[data-compact=true] .bm-chart-plot{padding-top:20px}.bm-pipeline-chart[data-compact=true] .bm-chart-plot svg{height:190px;width:100%}.bm-pipeline-chart[data-compact=true] .bm-chart-tooltip{font-size:10px;top:0}.bm-pipeline-chart[data-compact=true] .bm-chart-plot text{font-size:10px}
+
+.bm-shared-chart .bm-trend-plot{flex:1;min-height:210px;position:relative}.bm-shared-chart .bm-trend-plot>.chart-tooltip-area{position:absolute;inset:0}.bm-shared-chart .bm-trend-plot svg{height:100%}

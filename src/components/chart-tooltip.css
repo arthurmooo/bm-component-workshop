@@ -1,0 +1,9 @@
+.chart-tooltip-area{display:contents}
+.chart-floating-tip{position:fixed;z-index:1000;pointer-events:none;width:218px;padding:12px 14px;background:rgba(255,255,255,.98);border:1px solid #e1e7ef;border-radius:11px;box-shadow:0 6px 12px #1b304412,0 16px 38px #1b304414;font-family:var(--bm-font, Inter, sans-serif);animation:chart-tip-in 120ms ease-out;color:#293648}
+.chart-tip-title{font-size:var(--bm-text-caption);font-weight:500;color:#758296;margin-bottom:9px}
+.chart-tip-value{display:flex;align-items:center;gap:var(--bm-space-2)}
+.chart-tip-value i{width:7px;height:7px;border-radius:2px;flex:none}
+.chart-tip-value strong{font-size:17px;font-weight:600;letter-spacing:-.35px;font-variant-numeric:tabular-nums}
+.chart-tip-detail{margin-top:9px;padding-top:8px;border-top:1px solid var(--bm-border-subtle);font-size:var(--bm-text-caption);color:#718094;line-height:1.5}
+@keyframes chart-tip-in{from{opacity:0;transform:translateY(3px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.chart-floating-tip{animation:none}}

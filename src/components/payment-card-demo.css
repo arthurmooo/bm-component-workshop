@@ -1,0 +1,124 @@
+.payment-card-demo {
+  width: min(100%, 355px);
+  padding: 18px;
+  border: 1px solid #e5e9ee;
+  background: var(--bm-surface);
+  border-radius:var(--bm-radius-card);
+  font-size:var(--bm-text-small);
+  color: #8995a6;
+}
+.payment-card-demo > header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 19px;
+}
+.payment-card-demo > header strong {
+  font-size:var(--bm-text-small);
+  color: #65748a;
+  font-weight: 500;
+}
+.payment-card-demo > header > span {
+  font-size: 7px;
+  letter-spacing: 1px;
+  color: #a2adbc;
+}
+.pc-card {
+  border-radius:var(--bm-radius-card);
+  padding: 20px;
+  background: linear-gradient(120deg, #374150, #242d3a);
+  color: #d9e0e9;
+  box-shadow:
+    inset 0 1px 0 #ffffff22,
+    0 8px 15px #26354814;
+  transition: opacity 0.18s;
+}
+.pc-card[data-frozen="true"] {
+  opacity: 0.6;
+}
+.pc-card > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.pc-card > div > span {
+  display: flex;
+  align-items: center;
+  gap:var(--bm-space-1);
+  font-size: 8px;
+  color: #b3c2d4;
+  border: 1px solid #ffffff1c;
+  border-radius: 4px;
+  padding: 3px 5px;
+}
+.pc-card > p {
+  margin: 34px 0 25px;
+  font-size: 17px;
+  letter-spacing: 2px;
+  font-variant-numeric: tabular-nums;
+  font-weight: 400;
+  white-space: nowrap;
+}
+.pc-card > footer {
+  display: flex;
+  justify-content: space-between;
+  font-size: 9px;
+  letter-spacing: 0.5px;
+  color: #bec9d7;
+}
+.pc-card small {
+  display: block;
+  font-size: 6px;
+  letter-spacing: 1px;
+  margin-bottom: 5px;
+  color: #74849a;
+}
+.pc-balance {
+  text-align: center;
+  margin: 24px 0 19px;
+}
+.pc-balance > span {
+  font-size:var(--bm-text-caption);
+  color: #9aa6b6;
+}
+.pc-balance > strong {
+  display: block;
+  margin-top: 6px;
+  font-size: 23px;
+  font-weight: 450;
+  color: #65758d;
+  font-variant-numeric: tabular-nums;
+}
+.pc-actions {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.pc-actions button {
+  font: inherit;
+  font-size: 9px;
+  display: flex;
+  align-items: center;
+  gap:var(--bm-space-1);
+  padding: 7px 8px;
+  border: 1px solid #e8ecf2;
+  border-radius:var(--bm-radius-sm);
+  color: #8c9bb0;
+}
+.pc-actions button:hover {
+  background: #f6f8fc;
+}
+.pc-notice {
+  font-size: 8px;
+  min-height: 23px;
+  line-height: 1.5;
+  color: #a7b2c1;
+  margin: 15px 0 0;
+  text-align: center;
+}
+@media (prefers-reduced-motion: reduce) {
+  .pc-card {
+    transition: none;
+  }
+}

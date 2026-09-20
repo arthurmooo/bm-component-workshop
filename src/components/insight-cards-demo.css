@@ -1,0 +1,157 @@
+.insight-cards-demo {
+  width: min(100%, 450px);
+  border: 1px solid #e5e9ef;
+  border-radius:var(--bm-radius-card);
+  background: var(--bm-surface-muted);
+  padding: 18px;
+  color: #8997aa;
+  font-size:var(--bm-text-small);
+}
+.insight-cards-demo > header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 19px;
+}
+.insight-cards-demo > header > span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size:var(--bm-text-small);
+  color: #7b8aa0;
+}
+.insight-cards-demo > header small {
+  font-size: 9px;
+  color: #b0bac8;
+  margin-left: 4px;
+}
+.insight-cards-demo > header > div {
+  display: flex;
+  gap: 3px;
+}
+.insight-cards-demo > header button {
+  width: 24px;
+  height: 24px;
+  display: grid;
+  place-items: center;
+  color: #95a6be;
+  border-radius: 5px;
+}
+.insight-cards-demo > header button:hover:not(:disabled) {
+  background: #edf1f7;
+}
+.insight-cards-demo > header button:disabled {
+  opacity: 0.3;
+}
+.insight-cards-demo > h3 {
+  font-size:var(--bm-text-label);
+  font-weight: 500;
+  color: #65778f;
+  line-height: 1.5;
+  margin: 0 0 6px;
+}
+.ic-summary {
+  font-size:var(--bm-text-small);
+  line-height: 1.7;
+  color: #9aa8ba;
+  margin: 0 0 14px;
+}
+.ic-inner {
+  background: var(--bm-surface);
+  border: 1px solid #e7ecf3;
+  border-radius: 9px;
+  overflow: hidden;
+}
+.ic-metrics {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 14px;
+  gap: 15px;
+}
+.ic-metrics > div > span {
+  display: flex;
+  align-items: center;
+  gap:var(--bm-space-1);
+  font-size: 9px;
+  color: #9caabd;
+}
+.ic-metrics i {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+}
+.ic-metrics strong {
+  display: block;
+  font-size: 19px;
+  font-weight: 500;
+  margin: 5px 0 4px;
+  font-variant-numeric: tabular-nums;
+}
+.ic-metrics strong small {
+  font-size:var(--bm-text-caption);
+  font-weight: 400;
+}
+.ic-metrics em {
+  font-style: normal;
+  font-size: 8px;
+  color: #adb7c6;
+}
+.ic-chart-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 7px 12px;
+  border-top: 1px solid var(--bm-border-subtle);
+  border-bottom: 1px solid var(--bm-border-subtle);
+  background: #fafbfd;
+  font-size: 8px;
+  color: #a5b2c4;
+}
+.ic-chart-head small {
+  font-size: 7px;
+  border: 1px solid #e8edf4;
+  border-radius: 4px;
+  padding: 2px 4px;
+}
+.ic-chart {
+  padding: 6px 10px 8px;
+}
+.ic-chart svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+.ic-point-readout {
+  font-size: 8px;
+  line-height: 1.5;
+  color: #a3b0c3;
+  min-height: 24px;
+  padding-left: 4px;
+}
+.ic-question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  border: 1px solid #e5eaf1;
+  border-radius:var(--bm-radius-sm);
+  background: var(--bm-surface);
+  padding: 8px 10px;
+  margin-top: 11px;
+  font: inherit;
+  font-size: 9px;
+  color: #8496af;
+  width: 100%;
+  text-align: left;
+}
+.ic-question:hover {
+  background: #f3f7fd;
+}
+.insight-cards-demo > footer {
+  font-size: 8px;
+  line-height: 1.5;
+  color: #a3b1c4;
+  margin-top: 12px;
+  min-height: 23px;
+}

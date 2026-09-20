@@ -1,0 +1,116 @@
+.resizable-table table {
+  table-layout: fixed;
+}
+.resizable-table th {
+  position: relative;
+}
+.resizable-table .column-trigger {
+  padding-right: 12px;
+}
+.resizable-table td {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.resizable-table .column-resize-handle {
+  position: absolute;
+  right: -4px;
+  top: 0;
+  bottom: 0;
+  width: 9px;
+  z-index: 2;
+  cursor: col-resize;
+  touch-action: none;
+  outline: none;
+}
+.resizable-table .column-resize-handle::after {
+  content: "";
+  position: absolute;
+  top: 8px;
+  bottom: 8px;
+  left: 4px;
+  width: 1px;
+  border-radius: 2px;
+  background: var(--bm-border-strong);
+  transition:
+    background 120ms,
+    width 120ms;
+}
+.resizable-table .column-resize-handle:hover::after,
+.resizable-table .column-resize-handle:focus-visible::after {
+  width: 3px;
+  left: 3px;
+  background: var(--bm-accent);
+}
+.resizable-table.is-resizing {
+  cursor: col-resize;
+  user-select: none;
+}
+.resizable-table.is-resizing th,
+.resizable-table.is-resizing td,
+.resizable-table.is-resizing tr {
+  transform: none !important;
+}
+.resizable-table .owner-identity {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  min-width: 0;
+}
+.resizable-table .owner-identity > span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.resizable-table .owner-avatar {
+  width: 22px;
+  height: 22px;
+  flex: 0 0 22px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px #0000000a;
+  object-fit: cover;
+}
+.resizable-table .company-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.resizable-table .company-name i {
+  flex-shrink: 0;
+}
+@media (prefers-reduced-motion: reduce) {
+  .resizable-table .column-resize-handle::after {
+    transition: none;
+  }
+}
+
+/* Preserve the compact header treatment when using the shared table controls. */
+.table-demo .shared-column-trigger {
+  width: 100%;
+  min-width: 85px;
+  height: 36px;
+  padding: 0 9px;
+  font-size:var(--bm-text-caption);
+  color: var(--bm-ink-muted);
+  transition: background 140ms, color 140ms;
+}
+.table-demo .shared-column-trigger:hover,
+.table-demo .shared-column-trigger[data-state="open"] {
+  color: var(--bm-ink);
+  background: var(--bm-surface-hover);
+}
+.table-demo .shared-column-trigger > svg:last-child {
+  margin-left: auto;
+  color: #929ca6;
+}
+.table-demo .shared-column-resize::after {
+  top: 10px;
+  bottom: 10px;
+  width: 1px;
+  background: #dce1e5;
+}
+.table-demo .shared-column-resize:hover::after,
+.table-demo .shared-column-resize:focus-visible::after {
+  width: 2px;
+  background: var(--bm-focus);
+}
+@media (prefers-reduced-motion: reduce) {
+  .table-demo .shared-column-trigger { transition: none; }
+}

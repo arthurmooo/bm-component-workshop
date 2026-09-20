@@ -1,0 +1,382 @@
+[
+  {
+    "name": "Boutons",
+    "heading": "Boutons",
+    "overflow": false
+  },
+  {
+    "name": "Badges de statut",
+    "heading": "Badges de statut",
+    "overflow": false
+  },
+  {
+    "name": "Sélecteur de vue",
+    "heading": "Sélecteur de vue",
+    "overflow": false
+  },
+  {
+    "name": "Navigation compacte",
+    "heading": "Navigation compacte",
+    "overflow": false
+  },
+  {
+    "name": "Barre d’édition & tooltips",
+    "heading": "Barre d’édition & tooltips",
+    "overflow": false
+  },
+  {
+    "name": "Notifications",
+    "heading": "Notifications",
+    "overflow": false
+  },
+  {
+    "name": "Vide & chargement",
+    "heading": "Vide & chargement",
+    "overflow": false
+  },
+  {
+    "name": "Cartes de choix",
+    "heading": "Cartes de choix",
+    "overflow": false
+  },
+  {
+    "name": "Dropdown · labels",
+    "heading": "Dropdown · labels",
+    "overflow": false
+  },
+  {
+    "name": "Dropdown · tableau",
+    "heading": "Dropdown · tableau",
+    "overflow": false
+  },
+  {
+    "name": "Panneau de filtres",
+    "heading": "Panneau de filtres",
+    "overflow": false
+  },
+  {
+    "name": "Table · cellules & groupes",
+    "heading": "Table · cellules & groupes",
+    "overflow": false
+  },
+  {
+    "name": "Formulaire & étapes",
+    "heading": "Formulaire & étapes",
+    "overflow": false
+  },
+  {
+    "name": "Réglages d’apparence",
+    "heading": "Réglages d’apparence",
+    "overflow": false
+  },
+  {
+    "name": "Menu documentaire",
+    "heading": "Menu documentaire",
+    "overflow": false
+  },
+  {
+    "name": "Rôles & permissions",
+    "heading": "Rôles & permissions",
+    "overflow": false
+  },
+  {
+    "name": "Partage & avatars",
+    "heading": "Partage & avatars",
+    "overflow": false
+  },
+  {
+    "name": "Popover de connexion",
+    "heading": "Popover de connexion",
+    "overflow": false
+  },
+  {
+    "name": "Carte KPI",
+    "heading": "Carte KPI",
+    "overflow": false
+  },
+  {
+    "name": "Transfert de fichier",
+    "heading": "Transfert de fichier",
+    "overflow": false
+  },
+  {
+    "name": "Drawer de détail",
+    "heading": "Drawer de détail",
+    "overflow": false
+  },
+  {
+    "name": "Approbations & journal",
+    "heading": "Approbations & journal",
+    "overflow": false
+  },
+  {
+    "name": "Kanban · deals",
+    "heading": "Kanban · deals",
+    "overflow": false
+  },
+  {
+    "name": "Kanban · documents",
+    "heading": "Kanban · documents",
+    "overflow": false
+  },
+  {
+    "name": "Cartes de travail · inbox",
+    "heading": "Cartes de travail · inbox",
+    "overflow": false
+  },
+  {
+    "name": "Alertes & surfaces",
+    "heading": "Alertes & surfaces",
+    "overflow": false
+  },
+  {
+    "name": "Planning & Gantt",
+    "heading": "Planning & Gantt",
+    "overflow": false
+  },
+  {
+    "name": "Calendrier",
+    "heading": "Calendrier",
+    "overflow": false
+  },
+  {
+    "name": "Grille de widgets",
+    "heading": "Grille de widgets",
+    "overflow": false
+  },
+  {
+    "name": "Cartes d’agenda",
+    "heading": "Cartes d’agenda",
+    "overflow": false
+  },
+  {
+    "name": "Facture & totaux",
+    "heading": "Facture & totaux",
+    "overflow": false
+  },
+  {
+    "name": "Activité d’équipe",
+    "heading": "Activité d’équipe",
+    "overflow": false
+  },
+  {
+    "name": "Répertoire de contacts",
+    "heading": "Répertoire de contacts",
+    "overflow": false
+  },
+  {
+    "name": "Fiche de contact",
+    "heading": "Fiche de contact",
+    "overflow": false
+  },
+  {
+    "name": "Dates & assignation",
+    "heading": "Dates & assignation",
+    "overflow": false
+  },
+  {
+    "name": "Quotas & objectifs",
+    "heading": "Quotas & objectifs",
+    "overflow": false
+  },
+  {
+    "name": "Invitation d’équipe",
+    "heading": "Invitation d’équipe",
+    "overflow": false
+  },
+  {
+    "name": "Onboarding illustré",
+    "heading": "Onboarding illustré",
+    "overflow": false
+  },
+  {
+    "name": "Visite guidée",
+    "heading": "Visite guidée",
+    "overflow": false
+  },
+  {
+    "name": "Inbox · conversation",
+    "heading": "Inbox · conversation",
+    "overflow": false
+  },
+  {
+    "name": "Carte tâche & checklist",
+    "heading": "Carte tâche & checklist",
+    "overflow": false
+  },
+  {
+    "name": "Template de workflow",
+    "heading": "Template de workflow",
+    "overflow": false
+  },
+  {
+    "name": "Règle de dépense",
+    "heading": "Règle de dépense",
+    "overflow": false
+  },
+  {
+    "name": "Constructeur de formulaire",
+    "heading": "Constructeur de formulaire",
+    "overflow": false
+  },
+  {
+    "name": "Carte de paiement",
+    "heading": "Carte de paiement",
+    "overflow": false
+  },
+  {
+    "name": "Cartes d’analyse",
+    "heading": "Cartes d’analyse",
+    "overflow": false
+  },
+  {
+    "name": "Supervision de sous-agents",
+    "heading": "Supervision de sous-agents",
+    "overflow": false
+  },
+  {
+    "name": "Abonnement & limites",
+    "heading": "Abonnement & limites",
+    "overflow": false
+  },
+  {
+    "name": "Réponse sourcée",
+    "heading": "Réponse sourcée",
+    "overflow": false
+  },
+  {
+    "name": "Objectif détaillé",
+    "heading": "Objectif détaillé",
+    "overflow": false
+  },
+  {
+    "name": "Catalogue d’intégrations",
+    "heading": "Catalogue d’intégrations",
+    "overflow": false
+  },
+  {
+    "name": "Graphiques",
+    "heading": "Graphiques",
+    "overflow": false
+  },
+  {
+    "name": "Simulation financière",
+    "heading": "Simulation financière",
+    "overflow": false
+  },
+  {
+    "name": "Comparaisons & sparklines",
+    "heading": "Comparaisons & sparklines",
+    "overflow": false
+  },
+  {
+    "name": "Carte géographique",
+    "heading": "Carte géographique",
+    "overflow": false
+  },
+  {
+    "name": "Compositeur IA",
+    "heading": "Compositeur IA",
+    "overflow": false
+  },
+  {
+    "name": "Pièces jointes",
+    "heading": "Pièces jointes",
+    "overflow": false
+  },
+  {
+    "name": "Tuiles d’actions",
+    "heading": "Tuiles d’actions",
+    "overflow": false
+  },
+  {
+    "name": "Import & correspondance",
+    "heading": "Import & correspondance",
+    "overflow": false
+  },
+  {
+    "name": "Catalogue d’agents",
+    "heading": "Catalogue d’agents",
+    "overflow": false
+  },
+  {
+    "name": "Connexions & intégrations",
+    "heading": "Connexions & intégrations",
+    "overflow": false
+  },
+  {
+    "name": "Canvas de workflow",
+    "heading": "Canvas de workflow",
+    "overflow": false
+  },
+  {
+    "name": "Journal d’exécution",
+    "heading": "Journal d’exécution",
+    "overflow": false
+  },
+  {
+    "name": "Éditeur de message",
+    "heading": "Éditeur de message",
+    "overflow": false
+  },
+  {
+    "name": "Choix après réponse",
+    "heading": "Choix après réponse",
+    "overflow": false
+  },
+  {
+    "name": "Erreur & récupération",
+    "heading": "Erreur & récupération",
+    "overflow": false
+  },
+  {
+    "name": "Graphe de dépendances",
+    "heading": "Graphe de dépendances",
+    "overflow": false
+  },
+  {
+    "name": "Workflow conditionnel",
+    "heading": "Workflow conditionnel",
+    "overflow": false
+  },
+  {
+    "name": "Graphiques financiers",
+    "heading": "Graphiques financiers",
+    "overflow": false
+  },
+  {
+    "name": "Graphiques statistiques",
+    "heading": "Graphiques statistiques",
+    "overflow": false
+  },
+  {
+    "name": "Éditeur de règles",
+    "heading": "Éditeur de règles",
+    "overflow": false
+  },
+  {
+    "name": "Diagnostic de contexte",
+    "heading": "Diagnostic de contexte",
+    "overflow": false
+  },
+  {
+    "name": "Réseau d’agents",
+    "heading": "Réseau d’agents",
+    "overflow": false
+  },
+  {
+    "name": "Saisie vocale & récents",
+    "heading": "Saisie vocale & récents",
+    "overflow": false
+  },
+  {
+    "name": "Présence collaborative",
+    "heading": "Présence collaborative",
+    "overflow": false
+  },
+  {
+    "name": "Inspecteur de nœud média",
+    "heading": "Inspecteur de nœud média",
+    "overflow": false
+  }
+]

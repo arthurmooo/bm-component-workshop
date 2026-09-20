@@ -1,0 +1,37 @@
+
+.agenda-cards-demo{width:min(100%,560px);box-sizing:border-box;background:var(--bm-surface);border:1px solid #e4e8ed;border-radius:15px;color:#526170;padding:20px;font-size:var(--bm-text-body);box-shadow:0 4px 16px #24384b05}
+.agenda-cards-demo>header{display:flex;align-items:center;justify-content:space-between;margin-bottom:19px}
+.agenda-cards-demo>header>span{display:flex;align-items:center;gap:9px;font-size:var(--bm-text-label);font-weight:550;color:#354452}
+.agenda-cards-demo>header>span>svg{color:#7d8e9d}
+.agenda-cards-demo>header small{font-size:var(--bm-text-caption);font-variant-numeric:tabular-nums;display:grid;place-items:center;min-width:20px;height:20px;background:#f1f4f6;border:1px solid #e8edf1;border-radius:var(--bm-radius-sm);color:#7a8997}
+.agenda-card-list{display:flex;flex-direction:column;gap:10px}
+.agenda-event{border:1px solid #e8edf1;border-radius:11px;background:var(--bm-surface);overflow:hidden;transition:border-color .2s,box-shadow .2s,background .2s}
+.agenda-event:hover{border-color:#ccd7df;box-shadow:0 3px 9px #24384b06}
+.agenda-event[data-expanded=true]{border-color:#c7d5df;background:#fcfdfe;box-shadow:0 3px 10px #24384b06}
+.agenda-event-summary{display:flex;width:100%;box-sizing:border-box;text-align:left;align-items:center;gap:15px;padding:16px 14px;border:0;background:transparent;font:inherit;color:inherit;cursor:pointer}
+.agenda-event-summary:focus-visible{outline:2px solid #91adc5;outline-offset:-3px;border-radius:10px}
+.agenda-event-date{width:46px;flex-shrink:0;border:1px solid #e3e9ee;background:linear-gradient(#f8fafb,#f0f4f6);border-radius:var(--bm-radius-control);display:flex;flex-direction:column;align-items:center;gap:var(--bm-space-1);padding:7px 0;color:#587082;box-shadow:0 1px 2px #24384b04}
+.agenda-event-date>span{font-size:8px;font-weight:600;letter-spacing:.6px;color:#8494a1}
+.agenda-event-date>strong{font-size:23px;line-height:1.1;letter-spacing:-.7px;font-weight:550;font-variant-numeric:tabular-nums}
+.agenda-event-date>small{font-size:7px;letter-spacing:.65px;color:#92a0ab}
+.agenda-event-body{display:flex;flex:1;min-width:0;flex-direction:column;gap:7px}
+.agenda-event-heading{display:flex;align-items:center;justify-content:space-between;gap:var(--bm-space-2);flex-wrap:wrap}
+.agenda-event-heading>strong{font-size:var(--bm-text-body);font-weight:550;letter-spacing:-.12px;color:#344352;line-height:1.4}
+.agenda-event-time{display:flex;align-items:center;gap:5px;font-size:var(--bm-text-caption);color:#81909c;font-variant-numeric:tabular-nums}
+.agenda-event-time svg{color:#9ba7b1}
+.agenda-event-description{font-size:var(--bm-text-small);line-height:1.55;color:#758491}
+.agenda-priority{display:inline-flex;align-items:center;gap:var(--bm-space-1);font-size:8px;line-height:18px;font-weight:500;border-radius:5px;padding:0 6px;white-space:nowrap}
+.agenda-priority:before{content:"";width:3px;height:3px;border-radius:50%;background:currentColor;opacity:.6}
+.agenda-priority.coral{color:#a36f70;background:#faf0ef}.agenda-priority.amber{color:#967b4b;background:#f8f3e9}.agenda-priority.blue{color:#69839e;background:#edf3f8}.agenda-priority.done{color:#648674;background:var(--bm-success-soft)}
+.agenda-event-chevron{flex-shrink:0;color:#a5b0ba;transition:transform .22s,color .22s}
+.agenda-event-summary[aria-expanded=true] .agenda-event-chevron{transform:rotate(90deg);color:#5e7f97}
+.agenda-event-detail{margin:0 15px 0 76px;border-top:1px solid #e9eef2;padding:12px 0 15px;display:flex;flex-wrap:wrap;align-items:center;gap:10px;font-size:var(--bm-text-caption);color:#7d8d9b}
+.agenda-event-detail>span:first-child{display:flex;align-items:center;gap:5px;color:#5d7486}
+.agenda-event-detail>span:nth-child(2){width:100%}
+.agenda-event-detail>button{margin-top:2px}
+.agenda-event[data-done=true]{background:#fafcfb}
+.agenda-event[data-done=true] .agenda-event-heading>strong{color:#89958f}
+.agenda-event[data-done=true] .agenda-event-date{background:#f1f5f2;color:#829b8b}
+.agenda-cards-demo>footer{border-top:1px solid #edf0f3;margin-top:18px;padding-top:12px;min-height:16px;font-size:9px;line-height:1.5;color:#94a0aa}
+@media(max-width:480px){.agenda-cards-demo{padding:13px}.agenda-event-summary{padding:13px 10px;gap:10px}.agenda-event-date{width:39px}.agenda-event-detail{margin-left:60px}.agenda-event-heading{gap:5px}.agenda-event-description{font-size:var(--bm-text-caption)}}
+@media(prefers-reduced-motion:reduce){.agenda-event,.agenda-event-chevron{transition:none}}

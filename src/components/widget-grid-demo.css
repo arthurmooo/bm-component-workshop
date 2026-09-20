@@ -1,0 +1,237 @@
+.wg-demo {
+  width: 100%;
+  max-width: 630px;
+  color: #626262;
+}
+.wg-demo > header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size:var(--bm-text-body);
+  margin-bottom: 15px;
+}
+.wg-demo > header > div {
+  display: flex;
+  gap: 7px;
+}
+.wg-demo > header button {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: none;
+  border: 1px solid #e7e7e5;
+  border-radius: 5px;
+  padding: 5px 7px;
+  color: #969696;
+  font-size: 9px;
+  cursor: pointer;
+}
+.wg-demo > header button[aria-pressed="true"] {
+  background: #eee;
+  color: #555;
+}
+.wg-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 13px;
+  padding: 8px;
+  border-radius: 16px;
+}
+.wg-grid.show-grid {
+  background-image:
+    linear-gradient(#b9add522 1px, transparent 1px),
+    linear-gradient(90deg, #b9add522 1px, transparent 1px);
+  background-size: 12px 12px;
+  outline: 1px solid #dcd3e8;
+}
+.wg-widget {
+  position: relative;
+  border: 1px solid #e7e7e5;
+  background: var(--bm-surface);
+  border-radius: 19px;
+  min-height: 159px;
+  padding: 14px 16px 20px;
+  box-shadow: 0 3px 4px #00000003;
+  min-width: 0;
+}
+.wg-span-2 {
+  grid-column: span 2;
+}
+.wg-widget > header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size:var(--bm-text-caption);
+  color: #999;
+  margin-bottom: 18px;
+}
+.wg-widget > header button {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: #aaa;
+  cursor: pointer;
+}
+.wg-calendar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.wg-calendar > span {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  padding: 10px;
+  border: 1px solid #e7ebf0;
+  background: #f3f7fc;
+  border-radius: 11px;
+  min-width: 49px;
+}
+.wg-calendar small {
+  font-size: 8px;
+  color: #8394a8;
+}
+.wg-calendar strong {
+  font-size: 24px;
+  color: #536880;
+  font-weight: 500;
+  letter-spacing: -1px;
+}
+.wg-calendar h4 {
+  font-size:var(--bm-text-body);
+  font-weight: 500;
+  color: #666;
+  margin: 0 0 5px;
+}
+.wg-calendar p {
+  font-size:var(--bm-text-caption);
+  color: #999;
+  margin: 0 0 9px;
+}
+.wg-calendar > div > span {
+  display: flex;
+  align-items: center;
+  gap:var(--bm-space-1);
+  color: #9c9c9c;
+  font-size: 9px;
+}
+.wg-progress > div:first-child {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.wg-progress strong {
+  font-size: 29px;
+  color: #505050;
+  font-weight: 400;
+  letter-spacing: -1px;
+}
+.wg-progress strong span {
+  font-size:var(--bm-text-heading);
+  color: #bbb;
+}
+.wg-progress small {
+  font-size:var(--bm-text-small);
+  color: #7e9ac2;
+}
+.wg-meter {
+  height: 7px;
+  border-radius: 4px;
+  background: #eff1f5;
+  overflow: hidden;
+  margin-top: 12px;
+}
+.wg-meter span {
+  display: block;
+  width: 66.666%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    45deg,
+    #7eade3 0,
+    #7eade3 4px,
+    #98bfed 4px,
+    #98bfed 8px
+  );
+  border-radius: 4px;
+}
+.wg-progress p {
+  display: flex;
+  align-items: center;
+  gap:var(--bm-space-1);
+  font-size: 9px;
+  color: #969eab;
+  margin: 10px 0 0;
+}
+.wg-note {
+  padding-bottom: 7px;
+}
+.wg-note h4 {
+  font-size: 16px;
+  font-weight: 450;
+  color: #666;
+  letter-spacing: -0.4px;
+  margin: 0 0 9px;
+}
+.wg-note p {
+  font-size:var(--bm-text-small);
+  color: #999;
+  line-height: 1.75;
+  margin: 0 0 15px;
+  max-width: 370px;
+}
+.wg-note > span {
+  font-size: 8px;
+  color: #b0b0b0;
+}
+.wg-resize {position:absolute;bottom:10px;right:12px;border:1px solid #e6e9ed;display:grid;place-items:center;width:25px;height:25px;border-radius:var(--bm-radius-sm);color:#7a8793;background:var(--bm-surface);cursor:pointer;transition:background .15s,color .15s;}
+.wg-resize:hover{background:#f1f4f7;color:#40546a}
+.wg-demo > p {
+  text-align: center;
+  color: #999;
+  font-size: 9px;
+  margin: 12px 0 0;
+}
+.wg-demo button:focus-visible {
+  outline: 2px solid #7d9fc9;
+  outline-offset: 3px;
+}
+@media (max-width: 440px) {
+  .wg-grid {
+    grid-template-columns: 1fr;
+  }
+  .wg-span-2 {
+    grid-column: span 1;
+  }
+  .wg-widget {
+    min-height: 160px;
+  }
+}
+
+.wg-demo{color:#45515e;max-width:680px}
+.wg-demo>header{font-weight:550;margin-bottom:10px}
+.wg-grid{gap:14px;padding:10px;background:#f4f6f8;border:1px solid #e7ebef;border-radius:15px}
+.wg-grid.show-grid{background-image:radial-gradient(#aebbc6 1px,transparent 1px);background-size:16px 16px;outline:0}
+.wg-widget{border-radius:11px;border-color:#e2e7ec;min-height:180px;padding:14px 18px 36px;box-shadow:0 2px 5px #253b4d06;box-sizing:border-box}
+.wg-widget>header{gap:6px;margin-bottom:20px;font-size:var(--bm-text-small);color:#687584}
+.wg-widget>header>span{flex:1}
+.wg-widget>header button{display:grid;place-items:center;width:24px;height:24px;border-radius:5px;color:#8997a4;flex-shrink:0}
+.wg-widget>header button:hover{background:#f0f3f6;color:#465c70}
+.wg-widget>header .wg-drag-handle{cursor:grab;touch-action:none;margin-left:-7px}
+.wg-widget>header .wg-drag-handle:active{cursor:grabbing}
+.wg-widget[data-dragging=true]{border:1px dashed #7895ad;background:#f3f7fa;box-shadow:0 0 0 3px #7e9db012;}
+.wg-widget[data-dragging=true]>div{opacity:.45}
+.wg-calendar>span{background:#f0f4f8;border-radius:var(--bm-radius-control);min-width:44px;padding:9px 7px}
+.wg-calendar h4{color:#344352;font-size:var(--bm-text-label);font-weight:550}
+.wg-calendar p,.wg-calendar>div>span{color:#758290}
+.wg-progress strong{color:#344352;font-weight:500;font-variant-numeric:tabular-nums}
+.wg-progress strong span{color:#a0aab4;font-size:16px}
+.wg-progress small{color:#5c7e71;background:#edf4f0;border-radius:5px;padding:3px 6px}
+.wg-meter{height:6px;background:#edf1f3}
+.wg-meter span{background:#86aa9a}
+.wg-progress p{color:#7b8793;font-size:var(--bm-text-caption)}
+.wg-note h4{color:#344352;font-weight:500;font-size:15px;letter-spacing:-.2px}
+.wg-note p{color:#74818e;max-width:470px;font-size:var(--bm-text-body);line-height:1.65}
+.wg-note>span{color:#8a96a2;font-size:9px}
+.wg-demo>p{color:#82909c;font-size:var(--bm-text-caption)}
+@media(max-width:440px){.wg-widget{padding:12px 15px 38px}.wg-demo>header{gap:var(--bm-space-2)}}

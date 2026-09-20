@@ -1,0 +1,32 @@
+@import '@fontsource-variable/inter';
+@import './tokens.css';
+@import './primitives.css';
+@import './layout.css';
+
+:root { --ease:var(--bm-ease); --shadow:var(--bm-shadow-sm); }
+.bm-ui, .menu-surface, .date-picker { font-family:var(--bm-font); font-size:var(--bm-text-body); color:var(--bm-ink); font-synthesis:none; }
+.bm-ui *, .menu-surface *, .date-picker * { box-sizing:border-box; }
+.bm-ui button, .bm-ui input, .bm-ui textarea { font-family:inherit; }
+.bm-ui button { cursor:pointer; }
+.bm-ui button:disabled { cursor:not-allowed; opacity:.45; }
+.bm-ui svg { flex-shrink:0; vertical-align:middle; }
+.bm-ui :focus-visible, .menu-surface:focus-visible, .date-picker :focus-visible { outline:2px solid var(--bm-focus); outline-offset:3px; }
+.bm-ui .app-select:focus-visible, .bm-ui .date-field:focus-visible { outline-color:var(--bm-focus); }
+.bm-ui .button { font-family:inherit; cursor:pointer; }
+.button.ghost { background:transparent; }
+.button.primary { background:linear-gradient(var(--bm-action-hover),var(--bm-action)); border-color:var(--bm-action); color:var(--bm-on-action); }
+.button.primary:hover { background:var(--bm-action-hover); }
+.button.small { height:var(--bm-control-sm); }
+.button { height:var(--bm-control-md); }
+.button.small { height:var(--bm-control-sm); }
+.menu-surface { box-shadow:var(--bm-shadow-popover); }
+.shared-column-trigger { border:0; background:transparent; cursor:pointer; }
+.shared-data-table { width:100%; border-collapse:collapse; text-align:left; font-variant-numeric:tabular-nums; }
+.shared-column-trigger { width:100%; }
+.shared-column-trigger>svg:last-child { margin-left:auto; }
+.shared-column-trigger:hover, .shared-column-trigger[data-state=open] { background:var(--bm-surface-hover); }
+@media(prefers-reduced-motion:reduce) { .button,.app-select,.date-field,.menu-surface { transition:none; animation:none; } }
+
+/* Portable foundations: components must not depend on the workshop reset. */
+:where(.bm-ui) :where(button){appearance:none;-webkit-appearance:none;background:transparent;border:0;color:inherit;font:inherit;padding:0}
+.bm-ui .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}

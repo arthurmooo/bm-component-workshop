@@ -1,0 +1,124 @@
+.policy-demo {
+  width: min(100%, 450px);
+  padding: 21px;
+  background: var(--bm-surface);
+  border: 1px solid var(--bm-border);
+  border-radius:var(--bm-radius-card);
+  color: #505a69;
+}
+.policy-demo header {
+  display: flex;
+  gap: 11px;
+  margin-bottom: 24px;
+  align-items: flex-start;
+}
+.policy-demo header > svg {
+  color: #68768a;
+  margin-top: 2px;
+}
+.policy-demo h3 {
+  font-weight: 550;
+  font-size: 14px;
+  margin: 0 0 6px;
+}
+.policy-demo header p {
+  font-size:var(--bm-text-caption);
+  color: #68768a;
+  margin: 0;
+  line-height: 1.5;
+}
+.policy-rule {
+  border: 1px solid var(--bm-border);
+  border-radius:var(--bm-radius-control);
+  overflow: hidden;
+}
+.policy-rule > label {
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  font-size:var(--bm-text-small);
+  background: #fafbfd;
+}
+.policy-rule > label > div,
+.policy-test label > div {
+  display: flex;
+  align-items: center;
+  border: 1px solid #dfe6ef;
+  border-radius: 5px;
+  background: var(--bm-surface);
+  padding-right: 8px;
+  color: #68768a;
+  font-size: 9px;
+}
+.policy-demo input[type="number"] {
+  width: 67px;
+  border: 0;
+  background: transparent;
+  padding: 8px;
+  color: #5b6c85;
+  font-size:var(--bm-text-body);
+  font-variant-numeric: tabular-nums;
+}
+.policy-requirements {
+  padding: 16px;
+}
+.policy-requirements > p {
+  font-size: 9px;
+  margin: 0 0 14px;
+  color: #68768a;
+}
+.policy-requirements > label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 15px 0 0;
+  gap:var(--bm-space-3);
+}
+.policy-requirements > label > span {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size:var(--bm-text-small);
+}
+.policy-requirements svg {
+  color: #68768a;
+}
+.policy-requirements small {
+  display: block;
+  font-size: 9px;
+  color: #68768a;
+  margin-top: 4px;
+}
+.policy-requirements input {
+  accent-color: #8ba7ce;
+  width: 13px;
+  height: 13px;
+}
+.policy-test {
+  margin-top: 23px;
+  padding-top: 18px;
+  border-top: 1px solid var(--bm-border-subtle);
+}
+.policy-test > label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size:var(--bm-text-caption);
+  color: #68768a;
+}
+.policy-test p {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  color: #68768a;
+  font-size:var(--bm-text-caption);
+  margin: 12px 0 0;
+  line-height: 1.5;
+}
+.policy-demo > footer {
+  font-size: 9px;
+  color: #68768a;
+  margin-top: 22px;
+}

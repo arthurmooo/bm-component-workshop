@@ -1,0 +1,13 @@
+/* One neutral focus language across the workshop, including portalled controls. */
+:focus-visible { outline-color:var(--bm-focus)!important; }
+:focus-within { outline-color:var(--bm-focus)!important; }
+input:focus,textarea:focus,select:focus,[contenteditable=true]:focus { outline-color:var(--bm-focus)!important; }
+.module-search input:focus-visible { outline:none!important;box-shadow:none!important; }
+.module-search:focus-within { outline:none;border-color:#87958f;box-shadow:0 0 0 3px #87958f18; }
+:is(.directory-search,.dd-comment,.ta-replies form,.advanced-table-search,.pc-composer,.inbox-search,.inbox-reply,.navigation-search):focus-within {
+  border-color:#87958f;box-shadow:0 0 0 3px #87958f18;
+}
+:is(.directory-search,.dd-comment,.ta-replies form,.advanced-table-search,.inbox-search,.inbox-reply,.navigation-search) :is(input,textarea):focus-visible { outline:none;box-shadow:none; }
+.label-popover input:focus-visible { box-shadow:inset 0 -1px #87958f; }
+.mail-recipient-items input:focus { outline:none;box-shadow:0 1px #87958f; }
+.color-options button:focus-visible { box-shadow:inset 0 0 0 1px var(--bm-focus); }

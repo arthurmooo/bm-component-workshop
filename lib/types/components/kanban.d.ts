@@ -1,0 +1,31 @@
+import "./kanban-demo.css";
+export type DealKanbanCard = {
+    id: string;
+    name: string;
+    sector: string;
+    owner: string;
+    ownerName?: string;
+    avatarSrc?: string;
+    city: string;
+    amount: number;
+    amountLabel?: string;
+    progressLabel?: string;
+    hideProgress?: boolean;
+    date: string;
+    probability: number;
+    stage: string;
+    status: string;
+};
+export declare function KanbanDemo(): import("react").JSX.Element;
+export declare function DocumentKanbanDemo(): import("react").JSX.Element;
+export declare function DealKanban({ columns, cards, onOpen, onMove, readOnlyStages, label, currency, locale, action }: {
+    columns: string[];
+    cards: DealKanbanCard[];
+    onOpen?: (id: string) => void;
+    onMove?: (id: string, column: string) => boolean | void;
+    label?: string;
+    currency?: string;
+    locale?: string;
+    readOnlyStages?: boolean;
+    action?: React.ReactNode;
+}): import("react").JSX.Element;

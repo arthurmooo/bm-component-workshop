@@ -1,0 +1,213 @@
+.date-strip-demo {
+  width: min(100%, 460px);
+  border: 1px solid #e5e8ee;
+  border-radius:var(--bm-radius-card);
+  background: var(--bm-surface);
+  padding: 19px;
+  color: #788493;
+  font-size:var(--bm-text-small);
+}
+.date-strip-demo > header {
+  display: flex;
+  align-items: center;
+  gap:var(--bm-space-2);
+  color: #596579;
+  margin-bottom: 19px;
+}
+.date-strip-demo > header strong {
+  font-size:var(--bm-text-label);
+  font-weight: 500;
+}
+.ds-month {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid var(--bm-border-subtle);
+  background: var(--bm-surface-muted);
+  border-radius:var(--bm-radius-control);
+  padding: 5px;
+  margin-bottom: 9px;
+}
+.ds-month > span {
+  font-size:var(--bm-text-small);
+  text-transform: capitalize;
+  color: #7a8697;
+}
+.ds-month > button {
+  width: 25px;
+  height: 23px;
+  display: grid;
+  place-items: center;
+  background: var(--bm-surface);
+  border-radius: 5px;
+  border: 1px solid #edf0f3;
+  color: #929faf;
+}
+.ds-days {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 5px;
+  background: #f6f7f9;
+  border: 1px solid #e9edf1;
+  border-radius: 10px;
+  padding: 8px;
+  margin-bottom: 21px;
+}
+.ds-days > button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 0;
+  border-radius:var(--bm-radius-control);
+  font: inherit;
+  color: #99a3b0;
+  transition:
+    background 0.15s,
+    color 0.15s;
+}
+.ds-days > button strong {
+  font-size: 17px;
+  font-weight: 500;
+  color: #687487;
+  font-variant-numeric: tabular-nums;
+}
+.ds-days > button span {
+  font-size: 9px;
+}
+.ds-days > button[aria-pressed="true"] {
+  background: #374557;
+  color: #d4dce6;
+  box-shadow: 0 2px 5px #26334817;
+}
+.ds-days > button[aria-pressed="true"] strong {
+  color: var(--bm-surface);
+}
+.ds-label {
+  font-size:var(--bm-text-caption);
+  display: block;
+  margin-bottom: 8px;
+  color: #8794a5;
+}
+.ds-assignees {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  min-height: 46px;
+  padding: 8px;
+  border: 1px solid var(--bm-border-subtle);
+  border-radius:var(--bm-radius-control);
+}
+.ds-person {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: #f6f8fa;
+  border-radius: 5px;
+  padding: 4px 6px;
+  font-size:var(--bm-text-caption);
+  color: #79889c;
+}
+.ds-person img {
+  width: 19px;
+  height: 19px;
+  border-radius: 50%;
+}
+.ds-person button {
+  display: grid;
+  place-items: center;
+  margin-left: 4px;
+  color: #a0aab8;
+}
+.ds-none {
+  font-size:var(--bm-text-caption);
+  color: #aab2bd;
+  padding: 6px;
+}
+.ds-add {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 100%;
+  border: 1px solid #e8ecf1;
+  border-radius:var(--bm-radius-control);
+  padding: 9px;
+  margin-top: 7px;
+  font: inherit;
+  font-size:var(--bm-text-caption);
+  color: #93a0b2;
+}
+.ds-person-menu {
+  z-index: 100;
+  background: var(--bm-surface);
+  border: 1px solid #e5e9ef;
+  border-radius: 9px;
+  padding: 5px;
+  box-shadow: 0 10px 25px #20314d18;
+  min-width: 215px;
+}
+.ds-person-menu > button {
+  display: flex;
+  align-items: center;
+  gap:var(--bm-space-2);
+  width: 100%;
+  font: inherit;
+  font-size:var(--bm-text-small);
+  color: #738298;
+  padding: 8px;
+  border-radius:var(--bm-radius-sm);
+}
+.ds-person-menu > button:hover {
+  background: #f5f7fb;
+}
+.ds-person-menu img {
+  width: 23px;
+  height: 23px;
+  border-radius: 50%;
+}
+.ds-person-menu button > svg {
+  margin-left: auto;
+}
+.ds-person-menu .ds-menu-done {
+  justify-content: center;
+  border-top: 1px solid #edf0f3;
+  border-radius: 0;
+  font-size:var(--bm-text-caption);
+  margin-top: 3px;
+}
+.date-strip-demo > footer {
+  display: flex;
+  justify-content: space-between;
+  gap:var(--bm-space-3);
+  margin-top: 23px;
+}
+.date-strip-demo > footer button {
+  font: inherit;
+  font-size:var(--bm-text-caption);
+  border: 1px solid #e5eaf0;
+  border-radius:var(--bm-radius-control);
+  padding: 8px 12px;
+  color: #8c99ab;
+}
+.date-strip-demo > footer .ds-save {
+  background: #3f4c60;
+  color: var(--bm-surface);
+  border-color: #3f4c60;
+}
+.date-strip-demo > footer button:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+.date-strip-demo > p {
+  font-size: 9px;
+  color: #a2acb9;
+  line-height: 1.5;
+  min-height: 27px;
+  margin: 13px 0 0;
+}
+@media (prefers-reduced-motion: reduce) {
+  .ds-days > button {
+    transition: none;
+  }
+}

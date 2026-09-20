@@ -1,0 +1,170 @@
+.quota-demo {
+  width: min(100%, 430px);
+  color: #30343a;
+}
+.quota-demo nav {
+  display: flex;
+  gap:var(--bm-space-1);
+  margin: 0 0 18px;
+  justify-content: center;
+}
+.quota-demo nav button {
+  border: 0;
+  background: transparent;
+  font: inherit;
+  font-size:var(--bm-text-small);
+  color: #68768a;
+  padding: 6px 10px;
+  border-radius:var(--bm-radius-sm);
+}
+.quota-demo nav button[aria-pressed="true"] {
+  background: var(--bm-border-subtle);
+  color: #333943;
+}
+.quota-demo article {
+  border: 1px solid var(--bm-border);
+  border-radius: 16px;
+  background: var(--bm-surface);
+  padding: 5px;
+  box-shadow:
+    0 3px 8px #29314206,
+    0 1px 2px #29314207;
+}
+.quota-demo header {
+  display: flex;
+  justify-content: space-between;
+  padding: 13px 13px 17px;
+  gap:var(--bm-space-3);
+}
+.quota-demo header > span {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size:var(--bm-text-body);
+}
+.quota-demo header svg {
+  color: #68768a;
+}
+.quota-demo header > button {
+  border: 0;
+  background: transparent;
+  display: grid;
+  place-items: center;
+}
+.quota-body {
+  border: 1px solid var(--bm-border);
+  background: #fbfbfc;
+  border-radius: 11px;
+  padding: 20px 17px;
+}
+.quota-health {
+  display: flex;
+  justify-content: space-between;
+  gap:var(--bm-space-3);
+  font-size:var(--bm-text-caption);
+  color: #68768a;
+}
+.quota-health > span:last-child {
+  display: flex;
+  align-items: center;
+  gap:var(--bm-space-1);
+  border-radius: 20px;
+  padding: 3px 7px;
+  margin-top: -3px;
+  border: 1px solid #dfe9e5;
+}
+.quota-health .healthy {
+  color: #54796a;
+  background: #f3f8f5;
+}
+.quota-health .warning {
+  color: #68768a;
+  background: #fff8ec;
+  border-color: #ecdab9 !important;
+}
+.quota-value {
+  display: flex;
+  gap: 9px;
+  align-items: baseline;
+  margin: 17px 0 22px;
+  font-variant-numeric: tabular-nums;
+}
+.quota-value strong {
+  font-size: 34px;
+  letter-spacing: -1.5px;
+  font-weight: 550;
+}
+.quota-value > span {
+  font-size: 15px;
+  color: #68768a;
+}
+.quota-track {
+  height: 11px;
+  background: repeating-linear-gradient(115deg, #eceef2 0 2px, #f5f6f8 2px 5px);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.quota-track i {
+  display: block;
+  height: 100%;
+  background: #819acf;
+  border-radius: 4px;
+  transition: width 0.18s ease;
+}
+.quota-caption {
+  display: flex;
+  justify-content: space-between;
+  font-size:var(--bm-text-caption);
+  color: #68768a;
+  margin-top: 9px;
+}
+.quota-caption b {
+  color: #62749a;
+  font-weight: 500;
+}
+.quota-demo footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 14px 13px 10px;
+  font-size:var(--bm-text-caption);
+  color: #68768a;
+}
+.quota-demo footer strong {
+  color: #535c68;
+  font-weight: 500;
+}
+.quota-control {
+  display: grid;
+  gap: 7px;
+  font-size:var(--bm-text-caption);
+  color: #68768a;
+  padding: 19px 18px 0;
+}
+.quota-control input {
+  width: 100%;
+  accent-color: #7890be;
+}
+.quota-engagement {
+  margin-top: 20px;
+  padding-top: 17px;
+  border-top: 1px solid #e8ebef;
+}
+.quota-engagement > div:first-child {
+  display: flex;
+  justify-content: space-between;
+  font-size:var(--bm-text-small);
+  margin-bottom: 8px;
+  color: #68768a;
+}
+.quota-engagement strong {
+  font-weight: 500;
+  color: #606d86;
+}
+.quota-track.secondary i {
+  background: #ad9ac9;
+}
+@media (prefers-reduced-motion: reduce) {
+  .quota-track i {
+    transition: none;
+  }
+}

@@ -1,0 +1,2 @@
+.ac-action-label{display:grid;place-items:center;min-height:18px}
+.ac-action-label>span{display:flex;align-items:center;justify-content:center;gap:7px;white-space:nowrap}

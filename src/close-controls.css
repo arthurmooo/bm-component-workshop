@@ -1,0 +1,43 @@
+/* Shared corner geometry for dismiss/remove controls. Status crosses stay inline. */
+:root {
+  --close-inset: 2px;
+  --close-size: 20px;
+  --close-icon-size: 12px;
+}
+:root body button:has(> svg.lucide-x),
+:root body button[aria-label="Retirer la condition"] {
+  position: absolute;
+  inset: var(--close-inset) var(--close-inset) auto auto;
+  width: var(--close-size);
+  min-width: var(--close-size);
+  height: var(--close-size);
+  min-height: var(--close-size);
+  padding: 0;
+  margin: 0;
+  display: grid;
+  place-items: center;
+  flex: none;
+  border-radius: 5px;
+  z-index: 2;
+}
+:root body button:has(> svg.lucide-x) > svg {
+  width: var(--close-icon-size);
+  height: var(--close-icon-size);
+}
+.pc-attachment, .task-cover, .coachmark-content, .mi-toast,
+.invite-emails > span, .recipient-chip, .ds-person,
+.bm-plan-detail, .bm-calendar-detail, .rb-rule,
+.ac-dialog > header, .editor-specimen > header, .dd-toolbar,
+.bm-condition-node > header, .media-node > footer, .upload-info {
+  position: relative;
+}
+/* Keep title and action content outside the shared corner hit target. */
+.pc-attachment, .mi-toast, .invite-emails > span, .recipient-chip,
+.ds-person, .bm-plan-detail, .rb-rule,
+.ac-dialog > header, .editor-specimen > header, .dd-toolbar,
+.bm-condition-node > header, .media-node > footer, .upload-info,
+.bm-overlay-inner > header, .bm-calendar-detail > div {
+  padding-right: 30px;
+}
+.invite-emails > span, .recipient-chip, .ds-person { min-height: 24px; }
+.upload-tools { position: static; }
