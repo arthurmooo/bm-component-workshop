@@ -269,10 +269,15 @@ test('voice input exposes the reference capture, transcript and recent request h
  assert.match(component,/className="voice-waveform"/);
  assert.match(component,/aria-pressed=\{listening\}/);
  assert.doesNotMatch(component,/className="voice-stop"/);
+ assert.match(component,/Dictez votre demande\. Vous pourrez modifier la transcription/);
+ assert.match(component,/Transcription en direct/);
+ assert.match(component,/listening\?'Terminer':'Dicter'/);
  assert.match(component,/Transcription modifiable/);
  assert.match(component,/Utiliser la transcription/);
  assert.match(component,/Aucun audio enregistré ni transmis/);
  assert.match(css,/\.voice-capture\{display:grid/);
+ assert.match(css,/grid-template-columns:190px minmax\(145px,1fr\) auto/);
+ assert.match(css,/\.voice-panel>h3/);
  assert.match(css,/@keyframes voice-ring/);
  assert.match(css,/@media\(max-width:640px\)/);
 });
