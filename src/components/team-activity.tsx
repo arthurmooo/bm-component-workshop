@@ -1,5 +1,6 @@
 import { AnimatedReveal } from "./ui/animated-reveal";
 import { useState } from "react";
+import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import {
   MessageSquare,
   Upload,
@@ -12,6 +13,7 @@ import {
 import { Button } from "./ui/button";
 import "./team-activity.css";
 export function TeamActivityDemo() {
+  const reduced = useReducedMotion();
   const [tab, setTab] = useState("Tout");
   const [reactions, setReactions] = useState<string[]>([]);
   const [replies, setReplies] = useState([
@@ -46,11 +48,21 @@ export function TeamActivityDemo() {
         {["Tout", "Messages", "Accès", "Événements"].map((t) => (
           <button key={t} aria-pressed={tab === t} onClick={() => setTab(t)}>
             {t}
+            {tab === t && <motion.span className="ta-active-tab" layoutId="team-activity-tab" transition={{duration:reduced?0:.24,ease:[.22,1,.36,1]}}/>}
           </button>
         ))}
         <span>Aujourd’hui</span>
       </div>
       <div className="ta-timeline">
+        <AnimatePresence mode="wait" initial={false}>
+        <motion.div
+          className="ta-timeline-page"
+          key={tab}
+          initial={reduced?false:{opacity:0,y:5}}
+          animate={{opacity:1,y:0}}
+          exit={reduced?undefined:{opacity:0,y:-3}}
+          transition={{duration:reduced?0:.18,ease:[.22,1,.36,1]}}
+        >
         {(tab === "Tout" || tab === "Messages") && (
           <article className="ta-entry">
             <span className="ta-type purple">
@@ -222,10 +234,29 @@ export function TeamActivityDemo() {
             </div>
           </article>
         )}
+        </motion.div>
+        </AnimatePresence>
       </div>
       <footer role="status">
         {notice || "Activité fictive · aucun message ni droit réel modifié."}
       </footer>
     </section>
   );
+}
+
+export function ContactActivityFeed({name,avatar}:{name:string;avatar:string}) {
+  return <div className="ta-contact-feed" aria-label={`Activité de ${name}`}>
+    <article className="ta-entry">
+      <span className="ta-type purple"><MessageSquare size={13}/></span>
+      <div className="ta-entry-content"><div className="ta-meta"><img src={avatar} alt=""/><strong>{name}</strong><span>a commenté le dossier</span><time>Aujourd’hui · 09:20</time></div><blockquote>Les hypothèses ont été relues et sont prêtes pour le prochain échange.</blockquote></div>
+    </article>
+    <article className="ta-entry">
+      <span className="ta-type green"><Upload size={13}/></span>
+      <div className="ta-entry-content"><div className="ta-meta"><strong>Documents préparatoires</strong><span className="ta-channel">Synthèse financière.pdf</span><time>Hier · 16:42</time></div></div>
+    </article>
+    <article className="ta-entry">
+      <span className="ta-type blue"><CalendarDays size={13}/></span>
+      <div className="ta-entry-content"><div className="ta-meta"><strong>Premier échange avec l’équipe</strong><time>12 septembre</time></div><div className="ta-event ta-contact-event"><div><strong>Point de cadrage</strong><span>30 min · visioconférence</span></div></div></div>
+    </article>
+  </div>;
 }

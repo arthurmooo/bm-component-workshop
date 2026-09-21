@@ -51,6 +51,8 @@ export type DetailDrawerProps = {
     action?: ReactNode;
   };
   locale?: 'fr' | 'en';
+  breadcrumbLabel?: string;
+  identityIcon?: ReactNode;
 };
 function drawerActivityItems(items: DrawerActivity[], locale: 'fr' | 'en'): ActivityItem[] {
   return items.map((item) => ({
@@ -88,7 +90,7 @@ function drawerActivityItems(items: DrawerActivity[], locale: 'fr' | 'en'): Acti
     tone: item.tone,
   }));
 }
-export function DetailDrawer({ open, title, description, onClose, children, footer, closeLabel = 'Fermer le dossier', wide = false, eyebrow = 'ESPACE DE TRAVAIL', reference, properties = [], documents = [], activity = [], activityLabel, summaryTitle, summary, nextStep, locale = 'fr' }: DetailDrawerProps) {
+export function DetailDrawer({ open, title, description, onClose, children, footer, closeLabel = 'Fermer le dossier', wide = false, eyebrow = 'ESPACE DE TRAVAIL', reference, properties = [], documents = [], activity = [], activityLabel, summaryTitle, summary, nextStep, locale = 'fr', breadcrumbLabel, identityIcon }: DetailDrawerProps) {
   const ref = useRef<HTMLDialogElement>(null);
   const body = useRef<HTMLDivElement>(null);
   const id = useId();
@@ -163,7 +165,7 @@ export function DetailDrawer({ open, title, description, onClose, children, foot
         <div className="dd-toolbar">
           <span>
             <BriefcaseBusiness size={13} aria-hidden="true" />
-            {locale === 'en' ? 'Records' : 'Dossiers'} <ChevronRight size={12} aria-hidden="true" />
+            {breadcrumbLabel ?? (locale === 'en' ? 'Records' : 'Dossiers')} <ChevronRight size={12} aria-hidden="true" />
             <strong>{reference ?? title}</strong>
           </span>
           <div>
@@ -175,7 +177,7 @@ export function DetailDrawer({ open, title, description, onClose, children, foot
         <header className="dd-header">
           <div className="dd-company">
             <span className="dd-logo">
-              <Building2 size={24} aria-hidden="true" />
+              {identityIcon ?? <Building2 size={24} aria-hidden="true" />}
             </span>
             <div>
               <span className="dd-kicker">{eyebrow === 'ESPACE DE TRAVAIL' && locale === 'en' ? 'WORKSPACE RECORD' : eyebrow}</span>

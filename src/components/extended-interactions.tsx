@@ -1,13 +1,14 @@
 import { DataTable, DataRow } from "./ui/data-table";
 import { AppSelect } from "./ui/app-select";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
-  ArrowUp,
   Check,
+  Clock3,
+  FileText,
   Image,
   Mic,
   MousePointer2,
-  Pause,
+  Pencil,
   Play,
   Plus,
   SlidersHorizontal,
@@ -15,67 +16,63 @@ import {
 } from "lucide-react";
 import "./extended-interactions.css";
 export function VoicePromptDemo() {
-  const [text, setText] = useState(""),
-    [listening, setListening] = useState(false),
+  const [text, setText] = useState("Préparer une synthèse du dossier Astrée et identifier les points à valider avant le comité."),
+    [listening, setListening] = useState(true),
+    [elapsed, setElapsed] = useState(18),
     [recent, setRecent] = useState([
       "Préparer le prochain comité",
       "Résumer les pièces du dossier",
     ]),
     [notice, setNotice] = useState("");
+  useEffect(() => {
+    if (!listening) return;
+    const timer = window.setInterval(() => setElapsed((value) => value + 1), 1000);
+    return () => window.clearInterval(timer);
+  }, [listening]);
   function stop() {
     setListening(false);
-    setText("Préparer une synthèse des documents du dossier Atlas.");
-    setNotice("Transcription fictive insérée. Vous pouvez la modifier.");
+    setNotice("Écoute simulée terminée. Vous pouvez modifier la transcription.");
   }
+  function cancel() {
+    setListening(false);
+    setElapsed(0);
+    setText("");
+    setNotice("Saisie vocale annulée. Aucun audio conservé.");
+  }
+  const bars=[8,15,20,12,9,18,25,34,44,31,50,62,72,55,66,48,31,24,38,45,49,35,29,53,47,41,45,39,33,20,15,24,35,18,13,11,9,7,13,19,14,11,10,8,35];
   return (
     <section className="voice-prompt">
       <h3>Sur quoi travaillons-nous ?</h3>
       <p>Une saisie vocale de démonstration, sans microphone.</p>
       <div className="voice-box">
-        <textarea
-          aria-label="Demande à préparer"
-          value={text}
-          onChange={(e) => setText(e.target.value)}
-          placeholder="Décrivez votre demande…"
-        />
-        {listening && (
-          <div className="voice-wave" role="status">
-            <span />
-            <span />
-            <span />
-            <span />
-            <span />
-            <small>Écoute simulée…</small>
-          </div>
-        )}
-        <footer>
-          <button
-            aria-pressed={listening}
-            onClick={() => (listening ? stop() : setListening(true))}
-          >
-            {listening ? <Pause size={13} /> : <Mic size={13} />}{" "}
-            {listening ? "Terminer la simulation" : "Parler · démo"}
+        <div className={`voice-capture ${listening?'is-listening':''}`}>
+          <button className="voice-mic" aria-label={listening?'Terminer la simulation':'Démarrer la simulation'} aria-pressed={listening} onClick={()=>{if(listening){stop()}else{setListening(true);setElapsed(0);setNotice('')}}}>
+            <span><Mic size={25}/></span>
           </button>
-          <button
-            aria-label="Préparer cette demande"
-            disabled={!text.trim() || listening}
-            onClick={() => {
+          <div className="voice-signal">
+            <div className="voice-waveform" aria-hidden="true">{bars.map((height,index)=><i key={index} style={{height:`${height}%`,'--bar-index':index} as React.CSSProperties}/>)}</div>
+            <div className="voice-capture-status" role="status"><span><b/> {listening?'Écoute en cours':'Prête à écouter'}</span><time>{String(Math.floor(elapsed/60)).padStart(2,'0')}:{String(elapsed%60).padStart(2,'0')}</time></div>
+          </div>
+        </div>
+        <div className="voice-transcript"><textarea aria-label="Transcription modifiable" value={text} onChange={(e) => {setText(e.target.value);setNotice('')}} placeholder="La transcription apparaîtra ici…"/><Pencil size={16} aria-hidden="true"/></div>
+        <footer>
+          <button className="voice-cancel" onClick={cancel}>Annuler</button>
+          <button className="voice-use" disabled={!text.trim()} onClick={() => {
               setRecent(
                 [text.trim(), ...recent.filter((v) => v !== text.trim())].slice(
                   0,
                   4,
                 ),
               );
-              setNotice("Demande préparée localement. Aucun appel IA.");
-              setText("");
-            }}
-          >
-            <ArrowUp size={15} />
+              setListening(false);
+              setNotice("Transcription utilisée localement. Aucun appel IA.");
+            }}>
+            <Check size={15}/> Utiliser la transcription
           </button>
         </footer>
       </div>
       <div className="voice-recents">
-        <span>Récents</span>
+        <span><Clock3 size={15}/> Récents</span>
         {recent.map((v) => (
           <button
             key={v}
@@ -84,7 +81,7 @@ export function VoicePromptDemo() {
               setNotice("Demande précédente reprise.");
             }}
           >
-            {v}
+            <FileText size={14}/>{v}
           </button>
         ))}
       </div>

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Check, Gauge, RotateCcw, Target, TriangleAlert } from "lucide-react";
+import { BadgeCheck, Check, Gauge, RotateCcw, Target, TriangleAlert } from "lucide-react";
 import "./quota-demo.css";
 const fmt = (n: number) => n.toLocaleString("fr-FR");
 export function QuotaDemo() {
@@ -7,6 +7,15 @@ export function QuotaDemo() {
     [used, setUsed] = useState(6800);
   const limit = 10000,
     percent = Math.round((used / limit) * 100);
+  const reached = percent >= 100;
+  const objectiveReached = reached && mode === "Objectif";
+  const statusLabel = objectiveReached
+    ? "Objectif atteint"
+    : reached
+      ? "Plafond atteint"
+      : percent >= 90
+        ? "Proche du plafond"
+        : "Dans les limites";
   return (
     <section className="quota-demo">
       <nav aria-label="Variante de quota">
@@ -16,7 +25,7 @@ export function QuotaDemo() {
           </button>
         ))}
       </nav>
-      <article>
+      <article className={objectiveReached ? "is-complete" : reached ? "is-limit" : ""}>
         <header>
           <span>
             {mode === "Objectif" ? <Target size={16} /> : <Gauge size={16} />}
@@ -38,13 +47,15 @@ export function QuotaDemo() {
         <div className="quota-body">
           <div className="quota-health">
             <span>Septembre 2026</span>
-            <span className={percent >= 90 ? "warning" : "healthy"}>
-              {percent >= 90 ? (
+            <span className={objectiveReached ? "complete" : percent >= 90 ? "warning" : "healthy"}>
+              {objectiveReached ? (
+                <BadgeCheck size={12} />
+              ) : percent >= 90 ? (
                 <TriangleAlert size={11} />
               ) : (
                 <Check size={11} />
               )}{" "}
-              {percent >= 90 ? "Proche du plafond" : "Dans les limites"}
+              {statusLabel}
             </span>
           </div>
           <div className="quota-value">
@@ -73,6 +84,15 @@ export function QuotaDemo() {
             </span>
             <b>{percent} %</b>
           </div>
+          {reached && (
+            <div className="quota-threshold-message" role="status">
+              {objectiveReached ? (
+                <><BadgeCheck size={15} /><span><strong>Cible atteinte</strong>Le revenu mensuel prévu est sécurisé.</span></>
+              ) : (
+                <><TriangleAlert size={15} /><span><strong>Capacité épuisée</strong>Augmentez le plafond ou attendez le prochain cycle.</span></>
+              )}
+            </div>
+          )}
           {mode === "Campagne" && (
             <div className="quota-engagement">
               <div>

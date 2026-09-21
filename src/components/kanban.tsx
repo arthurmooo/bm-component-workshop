@@ -18,6 +18,7 @@ import {
   DropdownMenuItem,
 } from "./ui/dropdown-menu";
 import { moveDeal } from "./kanban-model.mjs";
+import { DetailDrawer } from "../design-system/dossier-components";
 import "./kanban-demo.css";
 const stages = ["Qualification", "Proposition", "Négociation"];
 export type DealKanbanCard={id:string;name:string;sector:string;owner:string;ownerName?:string;avatarSrc?:string;city:string;amount:number;amountLabel?:string;progressLabel?:string;hideProgress?:boolean;date:string;probability:number;stage:string;status:string};
@@ -85,7 +86,39 @@ const documentInitial = [
  {...initial[3],id:'loi',name:'Lettre d’intention',sector:'LOI · Atelier Nord',stage:'Signé',date:'12 sept. 2026',status:'Version 2 · 320 Ko'},
 ];
 export function KanbanDemo() {return <KanbanBoard/>}
-export function DocumentKanbanDemo() {return <KanbanBoard documents/>}
+export function DocumentKanbanDemo() {
+  const [selected, setSelected] = useState<string | null>(null);
+  const document = documentInitial.find((item) => item.id === selected) ?? documentInitial[0];
+  const [version = 'Version 1', size = '—'] = document.status.split(' · ');
+  const dossier = document.sector.split(' · ').at(-1) ?? document.sector;
+  return <>
+    <KanbanBoard documents onOpen={setSelected}/>
+    <DetailDrawer
+      open={selected !== null}
+      onClose={() => setSelected(null)}
+      closeLabel="Fermer le document"
+      breadcrumbLabel="Documents"
+      identityIcon={<FileText size={24} aria-hidden="true"/>}
+      eyebrow="DOCUMENT DU DOSSIER"
+      reference={document.id.toUpperCase()}
+      title={document.name}
+      description={document.sector}
+      properties={[
+        {label:'Statut',value:document.stage},
+        {label:'Type',value:'PDF'},
+        {label:'Version',value:version},
+        {label:'Dossier',value:dossier},
+        {label:'Dernière mise à jour',value:document.date},
+        {label:'Taille',value:size},
+      ]}
+      summaryTitle="À propos du document"
+      summary={`Ce document appartient au dossier ${dossier}. Son aperçu et ses actions restent rattachés à cette fiche.`}
+      footer="Données de démonstration · aucun document réel"
+    >
+      <p className="dd-doc-intro">Version de travail disponible pour consultation. Les actions documentaires seront connectées au stockage du dossier.</p>
+    </DetailDrawer>
+  </>;
+}
 export function DealKanban({columns,cards,onOpen,onMove,readOnlyStages=false,label,currency='EUR',locale='fr-FR',action}:{columns:string[];cards:DealKanbanCard[];onOpen?:(id:string)=>void;onMove?:(id:string,column:string)=>boolean|void;label?:string;currency?:string;locale?:string;readOnlyStages?:boolean;action?:React.ReactNode}){return <KanbanBoard boardCards={cards} boardColumns={columns} onOpen={onOpen} onMove={onMove} readOnlyStages={readOnlyStages} label={label} currency={currency} locale={locale} action={action}/>}
 function KanbanBoard({documents=false,boardCards,boardColumns,onOpen,onMove,readOnlyStages=false,label,currency='EUR',locale='fr-FR',action}:{documents?:boolean;boardCards?:DealKanbanCard[];boardColumns?:string[];onOpen?:(id:string)=>void;onMove?:(id:string,column:string)=>boolean|void;label?:string;currency?:string;locale?:string;readOnlyStages?:boolean;action?:React.ReactNode}) {
   const english=locale.startsWith("en");
@@ -99,12 +132,14 @@ function KanbanBoard({documents=false,boardCards,boardColumns,onOpen,onMove,read
   const [message, setMessage] = useState("");
   const reduced = useReducedMotion();
   const gesture=useRef<{id:string;x:number;y:number;active:boolean}|null>(null);
+  const suppressOpen=useRef(false);
   const [pointer,setPointer]=useState<{x:number;y:number}|null>(null);
   const syncKey=boardCards?.map(card=>`${card.id}:${card.stage}`).join('|')??'';
   useEffect(()=>{if(boardCards)setDeals(boardCards)},[syncKey]);
   useEffect(()=>{const cancel=(e:KeyboardEvent)=>{if(e.key==='Escape'){gesture.current=null;setDrag(null);setPreview(null);setOver(null);setPointer(null)}};window.addEventListener('keydown',cancel);return()=>window.removeEventListener('keydown',cancel)},[]);
   function startPointer(e:React.PointerEvent<HTMLElement>,id:string) {
     if(readOnlyStages || e.button!==0 || (e.target as HTMLElement).closest('button'))return;
+    e.preventDefault();
     e.currentTarget.setPointerCapture(e.pointerId);
     gesture.current={id,x:e.clientX,y:e.clientY,active:false};
     setDragHeight(e.currentTarget.getBoundingClientRect().height);
@@ -121,7 +156,7 @@ function KanbanBoard({documents=false,boardCards,boardColumns,onOpen,onMove,read
     const before=cards.find(el=>e.clientY<el.getBoundingClientRect().top+el.getBoundingClientRect().height/2)?.dataset.dealId??null;
     setOver(stage);setPreview({stage,before,height:dragHeight});
   }
-  function endPointer(){if(gesture.current?.active)finishDrop();gesture.current=null;setDrag(null);setOver(null);setPreview(null);setPointer(null)}
+  function endPointer(){if(gesture.current?.active){suppressOpen.current=true;window.setTimeout(()=>{suppressOpen.current=false},0);finishDrop()}gesture.current=null;setDrag(null);setOver(null);setPreview(null);setPointer(null)}
   function move(
     id: string,
     stage: string,
@@ -203,11 +238,11 @@ function KanbanBoard({documents=false,boardCards,boardColumns,onOpen,onMove,read
                     className={`kb-card ${documents?"kb-file-card":""} ${drag === deal.id ? "is-dragging" : ""}`}
                     data-deal-id={deal.id}
                     onPointerDown={e=>startPointer(e,deal.id)}
-                    role={readOnlyStages&&onOpen?"button":undefined}
-                    aria-label={readOnlyStages&&onOpen?`${english?"Open":"Ouvrir"} ${deal.name}`:undefined}
-                    tabIndex={readOnlyStages&&onOpen?0:undefined}
-                    onClick={e=>{if(readOnlyStages&&onOpen&&!(e.target as HTMLElement).closest('button,a,input,select,textarea,[role=menuitem]'))onOpen(deal.id)}}
-                    onKeyDown={e=>{if(readOnlyStages&&onOpen&&e.target===e.currentTarget&&(e.key==='Enter'||e.key===' ')){e.preventDefault();onOpen(deal.id)}}}
+                    role={onOpen?"button":undefined}
+                    aria-label={onOpen?`${english?"Open":"Ouvrir"} ${deal.name}`:undefined}
+                    tabIndex={onOpen?0:undefined}
+                    onClick={e=>{if(suppressOpen.current){suppressOpen.current=false;return}if(onOpen&&!(e.target as HTMLElement).closest('button,a,input,select,textarea,[role=menuitem]'))onOpen(deal.id)}}
+                    onKeyDown={e=>{if(onOpen&&e.target===e.currentTarget&&(e.key==='Enter'||e.key===' ')){e.preventDefault();onOpen(deal.id)}}}
 
                   >
                     <div className="kb-card-head">

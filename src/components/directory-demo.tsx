@@ -8,9 +8,11 @@ import {
   Building2,
   Copy,
   ChevronLeft,
+  ArrowUpRight,
   Check,
 } from "lucide-react";
 import { Button } from "./ui/button";
+import { ContactActivityFeed } from "./team-activity";
 import "./directory-demo.css";
 const people = [
   {
@@ -212,20 +214,7 @@ export function ContactProfileDemo() {
                   </div>
                 </>
               ) : tab === "Activité" ? (
-                <div className="directory-activity">
-                  <p>
-                    <span />
-                    Aujourd’hui<strong>Fiche consultée</strong>
-                  </p>
-                  <p>
-                    <span />
-                    Hier<strong>Documents préparatoires ajoutés</strong>
-                  </p>
-                  <p>
-                    <span />
-                    12 septembre<strong>Premier échange avec l’équipe</strong>
-                  </p>
-                </div>
+                <ContactActivityFeed name={person.name} avatar={`./avatars/${person.id}.svg`}/>
               ) : (
                 <div className="directory-colleagues">
                   {people
@@ -241,8 +230,11 @@ export function ContactProfileDemo() {
                         <img src={`./avatars/${p.id}.svg`} alt="" />
                         <span>
                           <strong>{p.name}</strong>
-                          <small>Contact de démonstration</small>
+                          <small>{p.role}</small>
+                          <span className="directory-colleague-company"><Building2 size={10}/>{p.company}</span>
+                          <span className="directory-colleague-meta"><MapPin size={10}/>{p.location}<i>Collègue du dossier</i></span>
                         </span>
+                        <ArrowUpRight size={14} className="directory-colleague-open"/>
                       </button>
                     ))}
                 </div>
@@ -314,24 +306,23 @@ export function DirectoryDemo() {
               <img src={`./avatars/${p.id}.svg`} alt="" />
               <span>
                 <strong>{p.name}</strong>
-                <small>
-                  #{p.id.toUpperCase()} · {p.company}
-                </small>
+                <small>{p.role}</small>
               </span>
+              <span className="directory-company"><Building2 size={11}/>{p.company}</span>
             </div>
-            <p>{p.role}. Coordination et suivi des dossiers de l’équipe.</p>
             <dl>
               <div>
-                <dd>{p.rating.toLocaleString("fr")}</dd>
-                <dt>Note / 5</dt>
+                <dt>Note</dt>
+                <dd>{p.rating.toLocaleString("fr")}<small>/ 5</small></dd>
               </div>
               <div>
-                <dd>{p.deliveries}</dd>
                 <dt>Dossiers</dt>
+                <dd>{p.deliveries}</dd>
               </div>
               <div>
-                <dd>{p.onTime} %</dd>
                 <dt>À temps</dt>
+                <dd>{p.onTime} %</dd>
+                <span className="directory-progress"><i style={{width:`${p.onTime}%`}}/></span>
               </div>
             </dl>
             <footer>
@@ -350,9 +341,10 @@ export function DirectoryDemo() {
               </button>
               <button
                 aria-expanded={selected === p.id}
+                className="directory-details"
                 onClick={() => setSelected(selected === p.id ? null : p.id)}
               >
-                {selected === p.id ? "Réduire" : "Détails"}
+                {selected === p.id ? "Réduire" : "Voir la fiche"}<ArrowUpRight size={12}/>
               </button>
             </footer>
             <AnimatedReveal open={selected === p.id}>

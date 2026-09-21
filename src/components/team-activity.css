@@ -26,14 +26,23 @@
   border-bottom: 1px solid #eef0f3;
 }
 .ta-filters > button {
+  position: relative;
   padding: 12px 0;
   font: inherit;
   color: #939ba6;
-  border-bottom: 2px solid transparent;
+  transition: color .18s ease;
 }
 .ta-filters > button[aria-pressed="true"] {
   color: #3f4e62;
-  border-bottom-color: #526782;
+}
+.ta-active-tab {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 2px;
+  border-radius: 2px;
+  background: #526782;
 }
 .ta-filters > span {
   margin-left: auto;
@@ -43,6 +52,7 @@
 .ta-timeline {
   padding: 20px 18px;
 }
+.ta-timeline-page{min-height:310px}
 .ta-entry {
   position: relative;
   display: flex;
@@ -303,3 +313,11 @@
     font-size: 9px;
   }
 }
+@media (prefers-reduced-motion: reduce) {
+  .ta-filters > button { transition: none; }
+}
+.ta-contact-feed{display:flex;flex-direction:column;padding:4px 2px 0}
+.ta-contact-feed .ta-entry{padding-bottom:22px}
+.ta-contact-feed .ta-meta time{margin-left:auto}
+.ta-contact-feed .ta-entry blockquote{background:#fafbfc;margin-bottom:0}
+.ta-contact-event{margin-bottom:5px;box-shadow:none;background:#f8fafc}

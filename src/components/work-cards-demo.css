@@ -29,10 +29,21 @@
   background: #f3f3f3;
 }
 .wc-envelope > header {
+  padding: 0;
+}
+.wc-envelope-toggle {
   display: flex;
   align-items: center;
   gap: 7px;
+  width: 100%;
   padding: 7px 8px 11px;
+  background: none;
+  border: 0;
+  border-radius: 10px;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
 }
 .wc-person {
   height: 21px;
@@ -61,13 +72,9 @@
   color: #878787;
   font-size: 9px;
 }
-.wc-envelope > header button {
-  background: none;
-  border: 0;
+.wc-envelope-toggle > svg {
   color: #999999;
-  display: grid;
-  place-items: center;
-  cursor: pointer;
+  flex: none;
 }
 .wc-inner {
   background: var(--bm-surface);

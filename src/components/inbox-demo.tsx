@@ -1,297 +1,47 @@
-import { useRef, useState } from "react";
-import {
-  Search,
-  Archive,
-  Mail,
-  MailOpen,
-  RotateCcw,
-  FileText,
-  Paperclip,
-  Send,
-} from "lucide-react";
+import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import { useMemo, useState } from "react";
+import { Archive, CheckCheck, ChevronLeft, ChevronRight, FileSpreadsheet, FileText, Filter, Mail, MailOpen, MessageCircle, MoreHorizontal, Paperclip, Phone, RotateCcw, Search, Send, Video } from "lucide-react";
 import { Button } from "./ui/button";
 import "./inbox-demo.css";
-const messages = [
-  {
-    id: "emma",
-    name: "Emma Dubois",
-    email: "emma@example.com",
-    subject: "Vos retours sur la présentation",
-    preview: "La version actualisée est prête pour notre prochain point.",
-    body: "Bonjour,\n\nLa présentation du dossier est prête. Vous trouverez la synthèse et le détail des hypothèses en pièces jointes.\n\nPourriez-vous confirmer les derniers arbitrages avant notre point de jeudi ?\n\nMerci,\nEmma",
-    date: "10:16",
-    attachments: ["Présentation.pdf", "Hypothèses.xlsx"],
-  },
-  {
-    id: "paul",
-    name: "Paul Laurent",
-    email: "paul@example.com",
-    subject: "Préparation du comité",
-    preview: "Voici les points proposés à l’ordre du jour.",
-    body: "Bonjour,\n\nJe propose de consacrer notre prochain comité aux trois scénarios et à leur calendrier de mise en œuvre.\n\nLe document préparatoire est joint.\n\nÀ bientôt,\nPaul",
-    date: "Hier",
-    attachments: ["Ordre du jour.docx"],
-  },
-  {
-    id: "alice",
-    name: "Alice Martin",
-    email: "alice@example.com",
-    subject: "Documents du dossier Nord",
-    preview: "Les documents demandés sont disponibles.",
-    body: "Bonjour,\n\nNous avons rassemblé les dernières informations pour le dossier Nord. Je reste disponible si un point nécessite un complément.\n\nBonne journée,\nAlice",
-    date: "14 sept.",
-    attachments: [],
-  },
+
+type EmailMessage={id:string;name:string;email:string;company:string;subject:string;preview:string;body:string;date:string;unread?:boolean;attachments:string[]};
+const emails:EmailMessage[]=[
+ {id:"emma",name:"Emma Dubois",email:"emma@example.com",company:"Studio Rivage",subject:"Vos retours sur la présentation",preview:"La version actualisée est prête pour notre prochain point.",body:"Bonjour,\n\nLa présentation du dossier est prête. Vous trouverez la synthèse et le détail des hypothèses en pièces jointes.\n\nPourriez-vous confirmer les derniers arbitrages avant notre point de jeudi ?\n\nMerci,\nEmma",date:"10:16",attachments:["Présentation.pdf","Hypothèses.xlsx"]},
+ {id:"paul",name:"Paul Laurent",email:"paul@example.com",company:"Maison Astrée",subject:"Préparation du comité",preview:"Voici les points proposés à l’ordre du jour.",body:"Bonjour,\n\nJe propose de consacrer notre prochain comité aux trois scénarios et à leur calendrier de mise en œuvre.\n\nLe document préparatoire est joint.\n\nÀ bientôt,\nPaul",date:"Hier",unread:true,attachments:["Ordre du jour.docx"]},
+ {id:"alice",name:"Alice Martin",email:"alice@example.com",company:"Atelier Nord",subject:"Documents du dossier Nord",preview:"Les documents demandés sont disponibles.",body:"Bonjour,\n\nNous avons rassemblé les dernières informations pour le dossier Nord. Je reste disponible si un point nécessite un complément.\n\nBonne journée,\nAlice",date:"14 sept.",attachments:[]},
 ];
-export function InboxDemo() {
-  const [active, setActive] = useState("emma");
-  const [read, setRead] = useState(["alice", "emma"]);
-  const [archived, setArchived] = useState<string[]>([]);
-  const [folder, setFolder] = useState("Réception");
-  const [query, setQuery] = useState("");
-  const [drafts, setDrafts] = useState<Record<string, string>>({});
-  const reply = drafts[active] ?? "";
-  const setReply = (value: string) =>
-    setDrafts((items) => ({ ...items, [active]: value }));
-  const searchRef = useRef<HTMLInputElement>(null);
-  const [replies, setReplies] = useState<Record<string, string[]>>({});
-  const [notice, setNotice] = useState("");
-  const filtered = messages.filter(
-    (m) =>
-      (folder === "Archives"
-        ? archived.includes(m.id)
-        : !archived.includes(m.id)) &&
-      `${m.name} ${m.subject}`
-        .toLocaleLowerCase("fr")
-        .includes(query.toLocaleLowerCase("fr")),
-  );
-  const message = filtered.find((m) => m.id === active);
-  function choose(id: string) {
-    setActive(id);
-    setRead((items) => (items.includes(id) ? items : [...items, id]));
-    setNotice("");
-  }
-  return (
-    <section
-      className="inbox-demo"
-      aria-label="Boîte de réception de démonstration"
-    >
-      <header>
-        <span>
-          <Mail size={15} /> Messagerie{" "}
-          <small>
-            {
-              messages.filter(
-                (m) => !read.includes(m.id) && !archived.includes(m.id),
-              ).length
-            }{" "}
-            non lu
-          </small>
-        </span>
-        <Button
-          small
-          variant="ghost"
-          aria-label="Réinitialiser la messagerie"
-          onClick={() => {
-            setActive("emma");
-            setRead(["alice", "emma"]);
-            setArchived([]);
-            setFolder("Réception");
-            setQuery("");
-            setDrafts({});
-            setReplies({});
-            setNotice("");
-          }}
-        >
-          <RotateCcw size={12} />
-        </Button>
-      </header>
-      <div className="inbox-folders">
-        {["Réception", "Archives"].map((f) => (
-          <button
-            key={f}
-            aria-pressed={folder === f}
-            onClick={() => {
-              setFolder(f);
-            }}
-          >
-            {f === "Réception" ? <Mail size={13} /> : <Archive size={13} />} {f}{" "}
-            <small>
-              {f === "Archives"
-                ? archived.length
-                : messages.length - archived.length}
-            </small>
-          </button>
-        ))}
-      </div>
-      <div className="inbox-columns">
-        <aside>
-          <label className="inbox-search">
-            <Search size={13} />
-            <input
-              ref={searchRef}
-              placeholder="Rechercher…"
-              aria-label="Rechercher un message"
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-            />
-          </label>
-          {filtered.map((m) => (
-            <button
-              key={m.id}
-              className="inbox-message-row"
-              aria-pressed={m.id === active}
-              data-unread={!read.includes(m.id)}
-              onClick={() => choose(m.id)}
-            >
-              <img src={`./avatars/${m.id}.svg`} alt="" />
-              <span>
-                <span className="inbox-row-sender">
-                  <strong>{m.name}</strong>
-                  <time>{m.date}</time>
-                </span>
-                <strong className="inbox-row-subject">{m.subject}</strong>
-                <small>{m.preview}</small>
-              </span>
-              {!read.includes(m.id) && <i aria-label="Non lu" />}
-            </button>
-          ))}
-          {!filtered.length && (
-            <p className="inbox-empty">Aucun message dans cette vue.</p>
-          )}
-        </aside>
-        <div className="inbox-reader">
-          {message ? (
-            <>
-              <div className="inbox-message-actions">
-                <Button
-                  small
-                  variant="ghost"
-                  onClick={() => {
-                    setArchived((items) =>
-                      items.includes(message.id)
-                        ? items.filter((id) => id !== message.id)
-                        : [...items, message.id],
-                    );
-                    searchRef.current?.focus();
-                    setNotice(
-                      folder === "Archives"
-                        ? "Message restauré dans la réception."
-                        : "Message déplacé dans les archives.",
-                    );
-                  }}
-                >
-                  <Archive size={13} />
-                  {folder === "Archives" ? "Restaurer" : "Archiver"}
-                </Button>
-                <Button
-                  small
-                  variant="ghost"
-                  onClick={() => {
-                    setRead((items) =>
-                      items.includes(message.id)
-                        ? items.filter((id) => id !== message.id)
-                        : [...items, message.id],
-                    );
-                    setNotice(
-                      read.includes(message.id)
-                        ? "Message marqué non lu."
-                        : "Message marqué lu.",
-                    );
-                  }}
-                >
-                  {read.includes(message.id) ? (
-                    <Mail size={13} />
-                  ) : (
-                    <MailOpen size={13} />
-                  )}{" "}
-                  {read.includes(message.id) ? "Marquer non lu" : "Marquer lu"}
-                </Button>
-              </div>
-              <div className="inbox-sender">
-                <img src={`./avatars/${message.id}.svg`} alt="" />
-                <div>
-                  <strong>{message.name}</strong>
-                  <small>De : {message.email}</small>
-                </div>
-                <time>{message.date}</time>
-              </div>
-              <h3>{message.subject}</h3>
-              <p className="inbox-message-body">{message.body}</p>
-              {message.attachments.length > 0 && (
-                <section
-                  className="inbox-attachments"
-                  aria-label="Pièces jointes"
-                >
-                  <span>
-                    <Paperclip size={12} /> {message.attachments.length} pièces
-                    jointes
-                  </span>
-                  <div>
-                    {message.attachments.map((file, i) => (
-                      <button
-                        key={file}
-                        onClick={() =>
-                          setNotice(
-                            `${file} : pièce jointe fictive, aucun fichier à télécharger.`,
-                          )
-                        }
-                      >
-                        <FileText size={19} />
-                        <span>
-                          <strong>{file}</strong>
-                          <small>{i === 0 ? "2 Mo" : "234 Ko"} · exemple</small>
-                        </span>
-                      </button>
-                    ))}
-                  </div>
-                </section>
-              )}
-              {(replies[message.id] ?? []).map((text, i) => (
-                <div className="inbox-local-reply" key={i}>
-                  <strong>Vous · brouillon local</strong>
-                  <p>{text}</p>
-                </div>
-              ))}
-              <form
-                className="inbox-reply"
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  if (!reply.trim()) return;
-                  setReplies((items) => ({
-                    ...items,
-                    [message.id]: [...(items[message.id] ?? []), reply.trim()],
-                  }));
-                  setReply("");
-                  setNotice(
-                    "Brouillon ajouté localement. Aucun e-mail envoyé.",
-                  );
-                }}
-              >
-                <textarea
-                  aria-label="Brouillon de réponse"
-                  placeholder="Rédiger une réponse…"
-                  value={reply}
-                  maxLength={2000}
-                  onChange={(e) => setReply(e.target.value)}
-                />
-                <button type="submit" disabled={!reply.trim()}>
-                  <Send size={12} /> Ajouter le brouillon
-                </button>
-              </form>
-            </>
-          ) : (
-            <div className="inbox-reader-empty">
-              <MailOpen size={24} />
-              <p>Sélectionnez un message.</p>
-            </div>
-          )}
-        </div>
-      </div>
-      <footer role="status">
-        {notice ||
-          "Messages et contacts fictifs · aucune boîte réelle connectée."}
-      </footer>
-    </section>
-  );
+const whatsappThreads=[
+ {id:"alice",name:"Alice Martin",company:"Atelier Nord",preview:"Le comité est confirmé pour jeudi.",date:"10:42",unread:2},
+ {id:"emma",name:"Emma Dubois",company:"Studio Rivage",preview:"Je vous envoie la version finale.",date:"09:18",unread:0},
+ {id:"paul",name:"Paul Laurent",company:"Maison Astrée",preview:"Parfait, merci pour le retour.",date:"Hier",unread:0},
+];
+const whatsappConversation:Record<string,{side:"in"|"out";text:string;time:string}[]>={
+ alice:[{side:"in",text:"Bonjour, avez-vous pu relire la dernière version de la synthèse ?",time:"10:31"},{side:"out",text:"Oui, les chiffres sont validés. Il reste seulement la page sur les scénarios.",time:"10:35"},{side:"in",text:"Très bien. Le comité est confirmé pour jeudi à 9 h 30.",time:"10:42"}],
+ emma:[{side:"out",text:"Pouvez-vous intégrer les deux commentaires juridiques ?",time:"09:06"},{side:"in",text:"C’est fait. Je vous envoie la version finale dans quelques minutes.",time:"09:18"}],
+ paul:[{side:"in",text:"La note est bien reçue.",time:"Hier"},{side:"out",text:"Parfait, merci pour le retour.",time:"Hier"}],
+};
+
+export function InboxDemo(){
+ const reduced=useReducedMotion();
+ const [channel,setChannel]=useState<"email"|"whatsapp">("email"),[emailActive,setEmailActive]=useState("emma"),[whatsappActive,setWhatsappActive]=useState("alice"),[read,setRead]=useState(["alice","emma"]),[archived,setArchived]=useState<string[]>([]),[folder,setFolder]=useState("Réception"),[query,setQuery]=useState(""),[draft,setDraft]=useState(""),[localReplies,setLocalReplies]=useState<Record<string,string[]>>({}),[notice,setNotice]=useState("");
+ const activeId=channel==="email"?emailActive:whatsappActive,email=emails.find(item=>item.id===emailActive)??emails[0],whatsapp=whatsappThreads.find(item=>item.id===whatsappActive)??whatsappThreads[0];
+ const filteredEmails=useMemo(()=>emails.filter(item=>(folder==="Archives"?archived.includes(item.id):!archived.includes(item.id))&&`${item.name} ${item.subject} ${item.company}`.toLowerCase().includes(query.toLowerCase())),[archived,folder,query]);
+ const filteredWhatsapp=useMemo(()=>whatsappThreads.filter(item=>`${item.name} ${item.company}`.toLowerCase().includes(query.toLowerCase())),[query]);
+ const changeChannel=(next:"email"|"whatsapp")=>{setChannel(next);setQuery("");setDraft("");setNotice("")};
+ const reset=()=>{setChannel("email");setEmailActive("emma");setWhatsappActive("alice");setRead(["alice","emma"]);setArchived([]);setFolder("Réception");setQuery("");setDraft("");setLocalReplies({});setNotice("")};
+ const sendLocal=()=>{if(!draft.trim())return;setLocalReplies(items=>({...items,[`${channel}:${activeId}`]:[...(items[`${channel}:${activeId}`]??[]),draft.trim()]}));setDraft("");setNotice(channel==="email"?"Brouillon ajouté localement · aucun e-mail envoyé.":"Message ajouté localement · aucun WhatsApp envoyé.")};
+ return <section className={`inbox-demo inbox-${channel}`} aria-label="Inbox multicanale de démonstration">
+  <header className="inbox-appbar"><div className="inbox-brand"><span className="inbox-brand-mark"><MessageCircle size={14}/></span><strong>Inbox</strong><small>{channel==="email"?"3 conversations":"3 contacts"}</small></div><div className="inbox-channel-switch" role="group" aria-label="Canal de conversation"><button aria-pressed={channel==="email"} onClick={()=>changeChannel("email")}><Mail size={13}/>Email{channel==="email"&&<motion.i layoutId="inbox-channel"/>}</button><button aria-pressed={channel==="whatsapp"} onClick={()=>changeChannel("whatsapp")}><MessageCircle size={13}/>WhatsApp{channel==="whatsapp"&&<motion.i layoutId="inbox-channel"/>}</button></div><Button small variant="ghost" aria-label="Réinitialiser la messagerie" onClick={reset}><RotateCcw size={13}/></Button></header>
+  <AnimatePresence mode="wait" initial={false}><motion.div className="inbox-channel-stage" key={channel} initial={{opacity:0,y:reduced?0:5}} animate={{opacity:1,y:0}} exit={{opacity:0,y:reduced?0:-4}} transition={{duration:reduced?0:.2,ease:[.22,1,.36,1]}}>
+   <aside className="inbox-list-pane"><div className="inbox-list-heading"><div><strong>{channel==="email"?"E-mails":"WhatsApp"}</strong><small>{channel==="email"?`${emails.filter(item=>!read.includes(item.id)&&!archived.includes(item.id)).length} non lu`:"Compte professionnel"}</small></div><button aria-label="Filtrer"><Filter size={14}/></button></div>{channel==="email"&&<div className="inbox-folders">{["Réception","Archives"].map(f=><button key={f} aria-pressed={folder===f} onClick={()=>setFolder(f)}>{f}<small>{f==="Archives"?archived.length:emails.length-archived.length}</small></button>)}</div>}<label className="inbox-search"><Search size={14}/><input placeholder={channel==="email"?"Rechercher un e-mail…":"Rechercher un contact…"} aria-label="Rechercher un message" value={query} onChange={e=>setQuery(e.target.value)}/></label><div className="inbox-list-scroll">
+    {channel==="email"?filteredEmails.map(item=><button key={item.id} className="inbox-message-row" aria-pressed={item.id===emailActive} data-unread={!read.includes(item.id)} onClick={()=>{setEmailActive(item.id);setRead(values=>values.includes(item.id)?values:[...values,item.id]);setDraft("");setNotice("")}}><img src={`./avatars/${item.id}.svg`} alt=""/><span><span className="inbox-row-sender"><strong>{item.name}</strong><time>{item.date}</time></span><small className="inbox-company">{item.company}</small><strong className="inbox-row-subject">{item.subject}</strong><small>{item.preview}</small></span>{!read.includes(item.id)&&<i aria-label="Non lu"/>}</button>):filteredWhatsapp.map(item=><button key={item.id} className="inbox-message-row whatsapp-row" aria-pressed={item.id===whatsappActive} onClick={()=>{setWhatsappActive(item.id);setDraft("");setNotice("")}}><span className="inbox-avatar-wrap"><img src={`./avatars/${item.id}.svg`} alt=""/><i/></span><span><span className="inbox-row-sender"><strong>{item.name}</strong><time>{item.date}</time></span><small className="inbox-company">{item.company}</small><span className="whatsapp-preview"><CheckCheck size={11}/>{item.preview}</span></span>{item.unread>0&&<b className="whatsapp-unread">{item.unread}</b>}</button>)}
+    {(channel==="email"?!filteredEmails.length:!filteredWhatsapp.length)&&<p className="inbox-empty">Aucune conversation dans cette vue.</p>}
+   </div></aside>
+   <main className="inbox-reader"><header className="inbox-conversation-bar"><div className="inbox-history"><button aria-label="Conversation précédente"><ChevronLeft size={15}/></button><button aria-label="Conversation suivante"><ChevronRight size={15}/></button></div><img src={`./avatars/${activeId}.svg`} alt=""/><div><strong>{channel==="email"?email.name:whatsapp.name}</strong><small>{channel==="email"?`${email.company} · ${email.email}`:`${whatsapp.company} · WhatsApp`}</small></div><div className="inbox-conversation-tools">{channel==="whatsapp"&&<><button aria-label="Appeler"><Phone size={14}/></button><button aria-label="Appel vidéo"><Video size={14}/></button></>}{channel==="email"&&<><button aria-label={folder==="Archives"?"Restaurer":"Archiver"} onClick={()=>{setArchived(items=>items.includes(email.id)?items.filter(id=>id!==email.id):[...items,email.id]);setNotice(folder==="Archives"?"E-mail restauré.":"E-mail archivé.")}}><Archive size={14}/></button><button aria-label={read.includes(email.id)?"Marquer non lu":"Marquer lu"} onClick={()=>setRead(items=>items.includes(email.id)?items.filter(id=>id!==email.id):[...items,email.id])}>{read.includes(email.id)?<Mail size={14}/>:<MailOpen size={14}/>}</button></>}<button aria-label="Plus d’actions"><MoreHorizontal size={15}/></button></div></header>
+    {channel==="email"?<div className="inbox-email-view"><div className="inbox-email-heading"><div><span>E-MAIL REÇU</span><time>{email.date}</time></div><h3>{email.subject}</h3><p>À vous · depuis {email.email}</p></div><article className="inbox-email-paper"><p>{email.body}</p></article>{email.attachments.length>0&&<section className="inbox-attachments" aria-label="Pièces jointes"><span><Paperclip size={12}/>{email.attachments.length} pièces jointes</span><div>{email.attachments.map((file,i)=><button key={file} onClick={()=>setNotice(`${file} : aperçu fictif.`)}><span className={`inbox-file-icon file-${file.split(".").pop()}`}>{file.endsWith("xlsx")?<FileSpreadsheet size={17}/>:<FileText size={17}/>}</span><span><strong>{file}</strong><small>{i===0?"PDF · 2 Mo":"XLSX · 234 Ko"}</small></span></button>)}</div></section>}{(localReplies[`email:${email.id}`]??[]).map((text,i)=><div className="inbox-local-reply" key={i}><span>VOUS · BROUILLON LOCAL</span><p>{text}</p></div>)}</div>:<div className="inbox-whatsapp-view"><div className="whatsapp-date"><span>Aujourd’hui</span></div>{[...whatsappConversation[whatsapp.id],...(localReplies[`whatsapp:${whatsapp.id}`]??[]).map(text=>({side:"out" as const,text,time:"À l’instant"}))].map((bubble,i)=><div className={`whatsapp-bubble-row is-${bubble.side}`} key={`${bubble.time}-${i}`}>{bubble.side==="in"&&<img src={`./avatars/${whatsapp.id}.svg`} alt=""/>}<div className="whatsapp-bubble"><p>{bubble.text}</p><span>{bubble.time}{bubble.side==="out"&&<CheckCheck size={12}/>}</span></div></div>)}</div>}
+    <form className="inbox-reply" onSubmit={e=>{e.preventDefault();sendLocal()}}><div className="inbox-reply-field">{channel==="email"&&<Paperclip size={15}/>}<textarea aria-label={channel==="email"?"Brouillon de réponse":"Message WhatsApp"} placeholder={channel==="email"?"Rédiger une réponse…":"Écrire un message WhatsApp…"} value={draft} maxLength={2000} onChange={e=>setDraft(e.target.value)}/></div><div className="inbox-reply-actions"><small>{channel==="email"?"Brouillon local · aucun envoi réel":"Conversation fictive · aucun compte connecté"}</small><button type="submit" disabled={!draft.trim()}><Send size={13}/>{channel==="email"?"Ajouter le brouillon":"Envoyer localement"}</button></div></form>
+   </main>
+  </motion.div></AnimatePresence>
+  <footer role="status">{notice||"Données fictives · aucune messagerie réelle connectée."}</footer>
+ </section>;
 }

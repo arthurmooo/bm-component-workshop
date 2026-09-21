@@ -1,5 +1,6 @@
 import { ActionFeedback } from "./ui/action-feedback";
 import { AnimatedReveal } from "./ui/animated-reveal";
+import { FileTypeIcon } from "./ui/file-type-icon";
 import { useEffect, useState } from "react";
 import {
   Check,
@@ -56,6 +57,7 @@ export function TaskCardsDemo() {
             {count} / {checks.length}
           </b>
         </span>
+        <span className="task-progress-percent">{count * 25} %</span>
         <ChevronDown size={13} />
       </button>
       <div
@@ -76,7 +78,7 @@ export function TaskCardsDemo() {
             "Relire la synthèse",
             "Valider la présentation",
           ].map((v, i) => (
-            <label key={v}>
+            <label key={v} data-complete={checks[i]}>
               <input
                 type="checkbox"
                 checked={checks[i]}
@@ -84,13 +86,14 @@ export function TaskCardsDemo() {
                   setChecks(checks.map((c, j) => (j === i ? !c : c)))
                 }
               />
+              <i aria-hidden="true">{checks[i] ? <Check size={11} /> : i + 1}</i>
               <span>{v}</span>
             </label>
           ))}
         </div>
       </AnimatedReveal>
       <div className="task-file">
-        <FileText size={15} />
+        <FileTypeIcon filename="Présentation comité.pdf" className="task-file-icon" />
         <span>
           Présentation comité.pdf
           <small>PDF · 2,4 Mo · fichier de démonstration</small>
@@ -104,14 +107,14 @@ export function TaskCardsDemo() {
           <img src="./avatars/alice.svg" alt="Alice" />
           <img src="./avatars/emma.svg" alt="Emma" />
         </span>
-        <span>
+        <span className="task-meta-chip">
           <CalendarDays size={11} />
           18 sept.
         </span>
-        <span>
+        <span className="task-meta-chip">
           <Paperclip size={11} />1
         </span>
-        <span>
+        <span className="task-meta-chip">
           <MessageSquare size={11} />
           {notes.length}
         </span>
@@ -149,20 +152,26 @@ export function TaskCardsDemo() {
 }
 export function WorkflowTemplateDemo() {
   const [phase, setPhase] = useState<'idle'|'running'|'done'>('idle');
+  const [activeNode, setActiveNode] = useState(-1);
   const [runs, setRuns] = useState(12);
-  useEffect(()=>{if(phase!=='running')return;const timer=setTimeout(()=>{setPhase('done');setRuns(n=>n+1)},1200);return()=>clearTimeout(timer)},[phase]);
+  useEffect(()=>{
+    if(phase!=='running')return;
+    const timers = [0, 1, 2].map((node) => setTimeout(() => setActiveNode(node), node * 420));
+    timers.push(setTimeout(()=>{setActiveNode(3);setPhase('done');setRuns(n=>n+1)},1260));
+    return()=>timers.forEach(clearTimeout);
+  },[phase]);
   return (
     <article className="workflow-template" data-state={phase}>
       <div className="template-cover">
-        <span>
+        <span data-active={activeNode >= 0}>
           <FileText size={22} />
         </span>
-        <i />
-        <span>
+        <i data-active={activeNode >= 1} />
+        <span data-active={activeNode >= 1}>
           <Workflow size={24} />
         </span>
-        <i />
-        <span>
+        <i data-active={activeNode >= 2} />
+        <span data-active={activeNode >= 2}>
           <Check size={21} />
         </span>
       </div>
@@ -191,7 +200,7 @@ export function WorkflowTemplateDemo() {
         <span>{runs} exécutions simulées</span>
         <button
           disabled={phase==='running'}
-          onClick={() => setPhase('running')}
+          onClick={() => {setActiveNode(0);setPhase('running')}}
         >
           <ActionFeedback state={phase} icon={phase==='running'?<Loader2 size={13} className="wf-spinner"/>:phase==='done'?<Check size={13}/>:<Play size={13}/>} text={phase==='running'?"En cours…":phase==='done'?"Terminée · rejouer":"Simuler"}/>
         </button>

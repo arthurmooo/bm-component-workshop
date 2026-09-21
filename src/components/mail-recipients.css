@@ -24,8 +24,13 @@
   align-items: center;
   gap: 5px;
   max-width: 100%;
-  overflow-wrap: anywhere;
+  white-space: nowrap;
   padding: 3px 5px;
+}
+.recipient-chip .recipient-name {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .recipient-chip img {
   width: 18px;
@@ -38,6 +43,11 @@
   padding: 2px;
   display: flex;
   color: #777;
+  width: 17px;
+  height: 17px;
+  flex: 0 0 17px;
+  align-items: center;
+  justify-content: center;
 }
 .mail-recipient-items input {
   border: 0;

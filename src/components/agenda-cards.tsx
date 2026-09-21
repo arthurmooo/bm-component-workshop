@@ -125,7 +125,7 @@ export function AgendaCards({events,title='À venir',footer='Cette semaine · ho
                 id={`agenda-detail-${event.id}`}
                 className="agenda-event-detail"
               >
-                <span>
+                <span className="agenda-event-place">
                   {event.place === "Visioconférence" ? (
                     <Video size={13} />
                   ) : (
@@ -133,7 +133,15 @@ export function AgendaCards({events,title='À venir',footer='Cette semaine · ho
                   )}{" "}
                   {event.place}
                 </span>
-                <span>Organisé par {event.owner}</span>
+                <span className="agenda-event-owner">
+                  <span className="agenda-owner-avatar" aria-hidden="true">
+                    {event.owner.split(' ').map((part) => part[0]).join('')}
+                  </span>
+                  <span>
+                    <small>Organisé par</small>
+                    <strong>{event.owner}</strong>
+                  </span>
+                </span>
                 <Button
                   small
                   variant="default"

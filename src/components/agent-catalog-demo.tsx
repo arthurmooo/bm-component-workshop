@@ -49,19 +49,37 @@ const agents = [
   },
 ];
 export function AgentCatalogDemo() {
+  const reducedMotion = useReducedMotion();
   const [category, setCategory] = useState("Tous");
   const [query, setQuery] = useState("");
   const [connected, setConnected] = useState<string[]>([]);
+  const [pending, setPending] = useState<string | null>(null);
   const [shared, setShared] = useState<(typeof agents)[number] | null>(null);
   const [copied, setCopied] = useState(false);
   const [copyError, setCopyError] = useState(false);
   const dialog = useRef<HTMLDialogElement>(null);
   const trigger = useRef<HTMLButtonElement | null>(null);
+  const connectTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const visible = agents.filter(
     (agent) =>
       (category === "Tous" || agent.category === category) &&
       agent.name.toLowerCase().includes(query.toLowerCase()),
   );
+  useEffect(() => () => {
+    if (connectTimer.current) clearTimeout(connectTimer.current);
+  }, []);
+  function toggleAgent(id: string) {
+    if (pending) return;
+    if (connected.includes(id)) {
+      setConnected((items) => items.filter((item) => item !== id));
+      return;
+    }
+    setPending(id);
+    connectTimer.current = setTimeout(() => {
+      setConnected((items) => [...items, id]);
+      setPending(null);
+    }, reducedMotion ? 80 : 520);
+  }
   function close() {
     dialog.current?.close();
     trigger.current?.focus();
@@ -95,9 +113,21 @@ export function AgentCatalogDemo() {
           />
         </label>
       </div>
-      <div className="ac-grid">
-        {visible.map((agent) => (
-          <article key={agent.id} className="ac-card">
+      <motion.div className="ac-grid" layout>
+        <AnimatePresence mode="popLayout">
+        {visible.map((agent) => {
+          const isConnected = connected.includes(agent.id);
+          const isPending = pending === agent.id;
+          return (
+          <motion.article
+            key={agent.id}
+            className={`ac-card${isConnected ? " is-connected" : ""}${isPending ? " is-connecting" : ""}`}
+            layout
+            initial={{ opacity: 0, y: reducedMotion ? 0 : 8, scale: reducedMotion ? 1 : .98 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: reducedMotion ? 0 : -6, scale: reducedMotion ? 1 : .98 }}
+            transition={{ duration: reducedMotion ? 0 : .2 }}
+          >
             <div className={`ac-art ac-art-${agent.tone}`}>
               <div className="ac-tool-icons">
                 {agent.tools.map((tool, index) => (
@@ -113,6 +143,9 @@ export function AgentCatalogDemo() {
                   </span>
                 ))}
               </div>
+              <AnimatePresence>
+                {isConnected && <motion.span className="ac-added-badge" initial={{ opacity: 0, scale: .7 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: .7 }}><Check size={12}/>Ajouté</motion.span>}
+              </AnimatePresence>
             </div>
             <div className="ac-body">
               <h4>{agent.name}</h4>
@@ -131,29 +164,23 @@ export function AgentCatalogDemo() {
                   <Share2 size={13} />
                 </button>
               </div>
-              <button
-                className={`ac-connect ${connected.includes(agent.id) ? "is-connected" : ""}`}
-                onClick={() =>
-                  setConnected((items) =>
-                    items.includes(agent.id)
-                      ? items.filter((id) => id !== agent.id)
-                      : [...items, agent.id],
-                  )
-                }
+              <motion.button
+                className={`ac-connect ${isConnected ? "is-connected" : ""}`}
+                disabled={Boolean(pending && !isPending)}
+                whileTap={reducedMotion ? undefined : { scale: .97 }}
+                onClick={() => toggleAgent(agent.id)}
               >
-                {connected.includes(agent.id) ? (
-                  <Check size={12} />
-                ) : (
-                  <Link2 size={12} />
-                )}{" "}
-                {connected.includes(agent.id)
-                  ? "Ajouté · retirer"
-                  : "Ajouter à mon espace"}
-              </button>
+                <ActionFeedbackLabel
+                  state={isPending ? "running" : isConnected ? "done" : "idle"}
+                  icon={isPending ? <Loader2 size={12} className="ac-spinner"/> : isConnected ? <Check size={12}/> : <Link2 size={12}/>}
+                  text={isPending ? "Ajout en cours…" : isConnected ? "Ajouté · retirer" : "Ajouter à mon espace"}
+                />
+              </motion.button>
             </div>
-          </article>
-        ))}
-      </div>
+          </motion.article>
+        )})}
+        </AnimatePresence>
+      </motion.div>
       {!visible.length && (
         <div className="ac-empty">
           Aucun assistant trouvé.

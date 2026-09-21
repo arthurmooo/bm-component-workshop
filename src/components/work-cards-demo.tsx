@@ -21,17 +21,18 @@ export function WorkCardsDemo() {
       </div>
       <article className={`wc-envelope ${read ? "is-read" : ""}`}>
         <header>
-          <span className="wc-person">AM</span>
-          <strong>Alice Martin</strong>
-          <span className="wc-priority">Prioritaire</span>
-          <time>10:24</time>
           <button
+            className="wc-envelope-toggle"
             aria-label={
               expanded ? "Réduire le dossier" : "Développer le dossier"
             }
             aria-expanded={expanded}
             onClick={() => setExpanded(!expanded)}
           >
+            <span className="wc-person">AM</span>
+            <strong>Alice Martin</strong>
+            <span className="wc-priority">Prioritaire</span>
+            <time>10:24</time>
             <ChevronDown
               size={14}
               style={{ transform: expanded ? "none" : "rotate(-90deg)" }}

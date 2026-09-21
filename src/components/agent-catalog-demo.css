@@ -76,6 +76,19 @@
   background: var(--bm-surface);
   box-shadow: 0 1px 2px #2b3c2005;
   overflow: hidden;
+  transition: border-color 220ms ease, box-shadow 220ms ease, transform 180ms ease;
+}
+.ac-card:hover {
+  border-color: #d7dedb;
+  box-shadow: 0 10px 28px #31473910;
+  transform: translateY(-2px);
+}
+.ac-card.is-connected {
+  border-color: #c9ded0;
+  box-shadow: 0 8px 24px #35614912;
+}
+.ac-card.is-connecting {
+  border-color: #d5dfd8;
 }
 .ac-art {
   position: relative;
@@ -84,6 +97,22 @@
   overflow: hidden;
   display: grid;
   place-items: center;
+}
+.ac-added-badge {
+  position: absolute;
+  top: 9px;
+  right: 9px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 7px;
+  border: 1px solid #bcdcc8;
+  border-radius: 999px;
+  background: #eff9f3e8;
+  color: #367b55;
+  font-size: 8px;
+  font-weight: 650;
+  backdrop-filter: blur(5px);
 }
 .ac-art:before {
   content: "";
@@ -201,11 +230,22 @@
   font-size: 9px;
   color: #737373;
   cursor: pointer;
+  transition: color 200ms ease, background 200ms ease, border-color 200ms ease, box-shadow 200ms ease;
 }
 .ac-connect.is-connected {
   background: #eef6e9;
   border-color: #e1edd9;
   color: #6b6b6b;
+}
+.ac-connect:not(:disabled):hover { border-color:#d4dfd7;background:#f6faf7;color:#4f735e }
+.ac-connect:disabled { cursor:default;opacity:.5 }
+.ac-connect .action-feedback { justify-content:center }
+.ac-spinner { animation:ac-spin .8s linear infinite }
+@keyframes ac-spin { to { transform:rotate(360deg) } }
+@media (prefers-reduced-motion: reduce) {
+  .ac-card,.ac-connect { transition:none }
+  .ac-card:hover { transform:none }
+  .ac-spinner { animation:none }
 }
 .ac-empty {
   text-align: center;

@@ -228,7 +228,7 @@ const modules = [
   {"id": "calendar", "title": "Calendrier", "group": "Compositions", "caption": "Une même échéance, plusieurs vues.", "description": "Semaine et mois Édition d’événements et durée Déplacement et clavier.", "source": "Calendrier de projet", "file": "calendar.jpeg", "link": "../../04-collecte-locale-20260915/images/local-027.jpeg", "details": ["Semaine et mois", "Édition d’événements et durée", "Déplacement et clavier"], "icon": Layers2},
   {"id": "forms", "title": "Formulaire & étapes", "group": "Interactions", "caption": "Avancer sans perdre sa saisie.", "description": "Champs, radio, montant et date Validation par étape et récapitulatif Création locale de démonstration.", "source": "Formulaire et étapes", "file": "forms.webp", "link": "../../02-composants/recrutement-formulaire-et-etapes.webp", "details": ["Champs, radio, montant et date", "Validation par étape et récapitulatif", "Création locale de démonstration"], "icon": Layers2},
   {"id": "settings", "title": "Réglages d’apparence", "group": "Interactions", "caption": "Les préférences se voient.", "description": "Thèmes et densité sur aperçu Switch et couleurs d’accent Aucun réglage système modifié.", "source": "Réglages comparés", "file": "settings.png", "link": "../../06-bookmarks-x-20260915/media/2094383840752218204/01.png", "details": ["Thèmes et densité sur aperçu", "Switch et couleurs d’accent", "Aucun réglage système modifié"], "icon": Layers2},
-  {"id": "editor", "title": "Éditeur de message", "group": "IA & documents", "caption": "Un brouillon bien composé.", "description": "Destinataire, objet et texte Barre de mise en forme Markdown Copie, aperçu et confirmation d’effacement.", "source": "Composer email", "file": "editor.jpg", "link": "../../06-bookmarks-x-20260915/media/2095040379968262189/01.jpg", "details": ["Destinataire, objet et texte", "Barre de mise en forme Markdown", "Copie, aperçu et confirmation d’effacement"], "icon": Layers2},
+  {"id": "editor", "title": "Éditeur de message", "group": "IA & documents", "caption": "Un brouillon bien composé.", "description": "Destinataire, objet et texte Mise en forme directe Copie, aperçu et confirmation d’effacement.", "source": "Composer email", "file": "editor.jpg", "link": "../../06-bookmarks-x-20260915/media/2095040379968262189/01.jpg", "details": ["Destinataire, objet et texte", "Mise en forme directe", "Copie, aperçu et confirmation d’effacement"], "icon": Layers2},
   {"id": "comparisons", "title": "Comparaisons & sparklines", "group": "Graphiques", "caption": "Barres horizontales, séries comparatives.", "description": "Barres horizontales, séries comparatives. Échelle commune et mini-historiques. Survol, clavier et vide.", "source": "Analytics commercial", "file": "comparisons.jpg", "link": "../../06-bookmarks-x-20260915/media/2099827615934943627/01-frames/008.93s.jpg", "details": ["Barres horizontales, séries comparatives", "Échelle commune et mini-historiques", "Survol, clavier et vide"],"icon": Layers2},
   {"id": "map", "title": "Carte géographique", "group": "Graphiques", "caption": "Contours géographiques Natural Earth.", "description": "Contours géographiques Natural Earth. Pays actifs et légende. Données fictives et sélection accessible.", "source": "Carte monde analytics", "file": "map.png", "link": "../../04-collecte-locale-20260915/images/local-016.png", "details": ["Contours géographiques Natural Earth", "Pays actifs et légende", "Données fictives et sélection accessible"],"icon": Layers2},
   {"id": "toolbar", "title": "Barre d’édition & tooltips", "group": "Fondations", "caption": "Gras, italique, souligné et alignement.", "description": "Gras, italique, souligné et alignement. Infobulles et focus. Aperçu de texte.", "source": "Microcomposants et éditeur", "file": "toolbar.jpg", "link": "../../06-bookmarks-x-20260915/media/2094787302967169266/04.jpg", "details": ["Gras, italique, souligné et alignement", "Infobulles et focus", "Aperçu de texte"],"icon": Layers2},
@@ -254,7 +254,7 @@ const modules = [
  {"id": "invitation", "title": "Invitation d’équipe", "group": "Compositions", "caption": "Adresses multiples.", "description": "Adresses multiples. Cartes de rôles et département. Invitation simulée", "source": "Invitation d’équipe", "file": "invitation.jpg", "link": "../../06-bookmarks-x-20260915/media/2094274397616140323/03.jpg", "details": ["Adresses multiples", "Cartes de rôles et département", "Invitation simulée"], "icon": Layers2},
  {"id": "onboarding", "title": "Onboarding illustré", "group": "Compositions", "caption": "Carte illustrée.", "description": "Carte illustrée. Pagination. Précédent et suivant", "source": "Onboarding illustré", "file": "onboarding.jpg", "link": "../../06-bookmarks-x-20260915/media/2079533426366136511/01-frames/013.52s.jpg", "details": ["Carte illustrée", "Pagination", "Précédent et suivant"], "icon": Layers2},
  {"id": "coachmark", "title": "Visite guidée", "group": "Compositions", "caption": "Coachmark ancré.", "description": "Coachmark ancré. Étapes et voile. Navigation et fermeture", "source": "Visite guidée", "file": "coachmark.jpg", "link": "../../06-bookmarks-x-20260915/media/2092484251119673503/01-frames/007.01s.jpg", "details": ["Coachmark ancré", "Étapes et voile", "Navigation et fermeture"], "icon": Layers2},
- {"id": "inbox-mail", "title": "Inbox · conversation", "group": "Compositions", "caption": "Liste et conversation synchronisées.", "description": "Liste et conversation synchronisées. Lecture, archives et restauration. Pièces et réponse locale", "source": "Inbox · conversation", "file": "inbox-mail.jpg", "link": "../../06-bookmarks-x-20260915/media/2058850571692732712/01.jpg", "details": ["Liste et conversation synchronisées", "Lecture, archives et restauration", "Pièces et réponse locale"], "icon": Layers2},
+ {"id": "inbox-mail", "title": "Inbox · multicanale", "group": "Compositions", "caption": "E-mail et messagerie instantanée.", "description": "Une enveloppe partagée, deux grammaires distinctes. E-mail éditorial avec pièces jointes. WhatsApp en bulles avec présence et accusés de lecture.", "source": "Inbox · conversation", "file": "inbox-mail.jpg", "link": "../../06-bookmarks-x-20260915/media/2058850571692732712/01.jpg", "details": ["Mode E-mail · objet, corps et pièces jointes", "Mode WhatsApp · bulles, présence et accusés", "Recherche, états de lecture et réponse locale"], "icon": Layers2},
  {"id": "task-cards", "title": "Carte tâche & checklist", "group": "Compositions", "caption": "Image et sous-tâches.", "description": "Image et sous-tâches. Progression recalculée. Priorité, avatars et notes", "source": "Carte tâche & checklist", "file": "task-cards.webp", "link": "../../04-collecte-locale-20260915/images/local-081.webp", "details": ["Image et sous-tâches", "Progression recalculée", "Priorité, avatars et notes"], "icon": Layers2},
  {"id": "workflow-template", "title": "Template de workflow", "group": "Compositions", "caption": "Déclencheur et outils.", "description": "Déclencheur et outils. Exécutions et date. Carte de template", "source": "Template de workflow", "file": "workflow-template.jpeg", "link": "../../04-collecte-locale-20260915/images/local-032.jpeg", "details": ["Déclencheur et outils", "Exécutions et date", "Carte de template"], "icon": Layers2},
  {"id": "policy", "title": "Règle de dépense", "group": "Compositions", "caption": "Seuil et justificatifs requis.", "description": "Seuil et justificatifs requis. Dépense d’essai. Résultat de validation", "source": "Règle de dépense", "file": "policy.jpg", "link": "../../04-collecte-locale-20260915/frames/local-video-08-3.jpg", "details": ["Seuil et justificatifs requis", "Dépense d’essai", "Résultat de validation"], "icon": Layers2},
@@ -277,6 +277,17 @@ const modules = [
 ];
 type Review = { status: "À examiner" | "À revoir" | "Validé"; note: string };
 const storageKey = "bm-component-workshop:v1";
+const approvedModuleIds = new Set([
+  "buttons", "badges", "segments", "labels", "table", "kpi", "upload",
+  "filters", "drawer", "charts", "kanban", "documents", "prompt",
+  "attachments", "actions", "simulation", "data-table", "navigation",
+  "import", "inbox", "alerts", "integrations", "planning", "forms",
+  "settings", "map", "toolbar", "context-menu", "notification", "empty",
+  "permissions", "widgets", "share", "connection", "followup", "agenda",
+  "invoice", "choice-cards", "team-activity", "directory", "profile",
+  "date-strip", "quota", "onboarding", "coachmark", "inbox-mail",
+  "task-cards", "workflow-template", "financial-charts",
+]);
 function getReviews(): Record<string, Review> {
   try {
     const raw = JSON.parse(localStorage.getItem(storageKey) || "{}");
@@ -284,14 +295,24 @@ function getReviews(): Record<string, Review> {
       modules
         .filter(
           (m) =>
-            raw[m.id] &&
-            ["À examiner", "À revoir", "Validé"].includes(raw[m.id].status) &&
-            typeof raw[m.id].note === "string",
+            approvedModuleIds.has(m.id) ||
+            (raw[m.id] &&
+              ["À examiner", "À revoir", "Validé"].includes(raw[m.id].status) &&
+              typeof raw[m.id].note === "string"),
         )
-        .map((m) => [m.id, raw[m.id]]),
+        .map((m) => [
+          m.id,
+          approvedModuleIds.has(m.id)
+            ? { status: "Validé", note: typeof raw[m.id]?.note === "string" ? raw[m.id].note : "" }
+            : raw[m.id],
+        ]),
     );
   } catch {
-    return {};
+    return Object.fromEntries(
+      modules
+        .filter((m) => approvedModuleIds.has(m.id))
+        .map((m) => [m.id, { status: "Validé", note: "" }]),
+    );
   }
 }
 function download(name: string, text: string, type = "application/json") {

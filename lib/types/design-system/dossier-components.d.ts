@@ -52,8 +52,10 @@ export type DetailDrawerProps = {
         action?: ReactNode;
     };
     locale?: 'fr' | 'en';
+    breadcrumbLabel?: string;
+    identityIcon?: ReactNode;
 };
-export declare function DetailDrawer({ open, title, description, onClose, children, footer, closeLabel, wide, eyebrow, reference, properties, documents, activity, activityLabel, summaryTitle, summary, nextStep, locale }: DetailDrawerProps): import("react").JSX.Element;
+export declare function DetailDrawer({ open, title, description, onClose, children, footer, closeLabel, wide, eyebrow, reference, properties, documents, activity, activityLabel, summaryTitle, summary, nextStep, locale, breadcrumbLabel, identityIcon }: DetailDrawerProps): import("react").JSX.Element;
 export type DocumentItem = {
     id: string;
     name: string;

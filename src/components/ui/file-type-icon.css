@@ -1,0 +1,4 @@
+.file-type-icon{--file-color:#687d98;position:relative;display:inline-flex;align-items:center;justify-content:center;flex-direction:column;flex:0 0 auto;width:31px;height:37px;color:var(--file-color)}
+.file-type-icon small{margin-top:-1px;font-size:6px;font-weight:750;line-height:1;letter-spacing:.1px}
+.file-type-icon.is-small{width:26px;height:31px}.file-type-icon.is-small small{font-size:5px}
+.file-type-icon.is-pdf{--file-color:#c84b45}.file-type-icon.is-sheet{--file-color:#2f7d57}.file-type-icon.is-document{--file-color:#3974b8}.file-type-icon.is-slides{--file-color:#c86a3d}.file-type-icon.is-image{--file-color:#8a5ca8}.file-type-icon.is-archive{--file-color:#78679c}

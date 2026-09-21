@@ -24,3 +24,4 @@
 .dd-activity-schedule>div>span{display:grid;gap:var(--bm-space-1)}
 .dd-activity-schedule small{font-size:var(--bm-text-caption);color:var(--bm-ink-secondary)}
 .dd-activity-schedule time{font-size:var(--bm-text-small);color:var(--bm-ink);font-variant-numeric:tabular-nums}
+.dd-file-icon{border:0;border-radius:0;background:transparent;color:#c84b45}.dd-file-icon small{font-size:7px;font-weight:700;line-height:1;margin-top:2px;letter-spacing:.12px}.dd-file-icon.sheet{color:#2f7d57;background:transparent}.dd-file-icon.file-doc,.dd-file-icon.file-docx{color:#3974b8}.dd-file-icon.file-ppt,.dd-file-icon.file-pptx{color:#c86a3d}.dd-file-icon.file-csv{color:#258278}.dd-file-icon.file-zip{color:#7a6b9d}

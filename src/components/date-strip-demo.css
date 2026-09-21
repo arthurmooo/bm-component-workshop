@@ -18,15 +18,23 @@
   font-size:var(--bm-text-label);
   font-weight: 500;
 }
+.ds-toolbar {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 174px;
+  gap: 8px;
+  align-items: stretch;
+  margin-bottom: 9px;
+}
 .ds-month {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  height: 36px;
+  box-sizing: border-box;
   border: 1px solid var(--bm-border-subtle);
   background: var(--bm-surface-muted);
   border-radius:var(--bm-radius-control);
   padding: 5px;
-  margin-bottom: 9px;
 }
 .ds-month > span {
   font-size:var(--bm-text-small);
@@ -42,6 +50,25 @@
   border-radius: 5px;
   border: 1px solid #edf0f3;
   color: #929faf;
+  transition: color .16s, border-color .16s, transform .16s, background .16s;
+}
+.ds-month > button:hover {
+  color: #526277;
+  border-color: #dce3eb;
+  transform: translateY(-1px);
+}
+.ds-calendar-choice {
+  min-width: 0;
+}
+.ds-calendar-choice .date-field {
+  height: 36px;
+  min-height: 36px;
+  box-sizing: border-box;
+  padding: 7px 9px;
+  gap: 7px;
+  color: #607086;
+  font-size: var(--bm-text-caption);
+  white-space: nowrap;
 }
 .ds-days {
   display: grid;
@@ -54,6 +81,8 @@
   margin-bottom: 21px;
 }
 .ds-days > button {
+  position: relative;
+  isolation: isolate;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -62,9 +91,24 @@
   border-radius:var(--bm-radius-control);
   font: inherit;
   color: #99a3b0;
-  transition:
-    background 0.15s,
-    color 0.15s;
+  transition: color 0.18s, transform 0.18s;
+}
+.ds-days > button:hover {
+  color: #667488;
+  transform: translateY(-1px);
+}
+.ds-days > button > span:not(.ds-day-active),
+.ds-days > button > strong {
+  position: relative;
+  z-index: 1;
+}
+.ds-day-active {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: var(--bm-radius-control);
+  background: #374557;
+  box-shadow: 0 2px 5px #26334817;
 }
 .ds-days > button strong {
   font-size: 17px;
@@ -76,9 +120,7 @@
   font-size: 9px;
 }
 .ds-days > button[aria-pressed="true"] {
-  background: #374557;
   color: #d4dce6;
-  box-shadow: 0 2px 5px #26334817;
 }
 .ds-days > button[aria-pressed="true"] strong {
   color: var(--bm-surface);
@@ -191,23 +233,55 @@
   color: #8c99ab;
 }
 .date-strip-demo > footer .ds-save {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   background: #3f4c60;
   color: var(--bm-surface);
   border-color: #3f4c60;
+  transition: background .18s, border-color .18s, color .18s, transform .18s;
+}
+.date-strip-demo > footer .ds-save.is-saved {
+  background: #e9f7ef;
+  border-color: #bfe4ce;
+  color: #25744a;
+}
+.date-strip-demo > footer .ds-save:not(:disabled):active {
+  transform: scale(.97);
 }
 .date-strip-demo > footer button:disabled {
   opacity: 0.35;
   cursor: default;
 }
-.date-strip-demo > p {
+.ds-save-status {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
   font-size: 9px;
   color: #a2acb9;
   line-height: 1.5;
   min-height: 27px;
   margin: 13px 0 0;
 }
+.ds-save-status.is-saved {
+  min-height: 0;
+  padding: 8px 9px;
+  border: 1px solid #d8eee1;
+  border-radius: var(--bm-radius-control);
+  background: #f3fbf6;
+  color: #347957;
+}
+.ds-save-status svg {
+  flex: 0 0 auto;
+  margin-top: 1px;
+}
 @media (prefers-reduced-motion: reduce) {
-  .ds-days > button {
+  .ds-days > button,
+  .ds-month > button {
     transition: none;
   }
+}
+@media (max-width: 430px) {
+  .ds-toolbar { grid-template-columns: 1fr; }
+  .ds-calendar-choice .date-field { min-height: 35px; }
 }

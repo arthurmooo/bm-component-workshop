@@ -59,7 +59,7 @@ export function MailRecipients({ onSend, disabled = false }: { onSend: (recipien
             {recipients[kind].map((r) => (
               <span className="recipient-chip" key={r.email} title={r.email}>
                 {r.avatar && <img src={r.avatar} alt="" />}
-                {r.name}
+                <span className="recipient-name">{r.name}</span>
                 <button
                   type="button"
                   aria-label={"Retirer " + r.name + " de " + kind}

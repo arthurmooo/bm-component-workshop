@@ -59,12 +59,11 @@
   border-radius:var(--bm-radius-card);
   padding: 6px;
   min-width: 0;
-  transition: background 0.16s;
   scroll-snap-align: start;
 }
-.kb-column.is-over {
+.kb-column.is-over .kb-cards {
   background: #e8f0f9;
-  border-color: #aec7e9;
+  box-shadow: inset 0 0 0 1px #aec7e9;
 }
 .kb-column > header {
   display: flex;
@@ -100,6 +99,8 @@
   align-content: start;
   gap: 6px;
   min-height: 218px;
+  border-radius: calc(var(--bm-radius-card) - 3px);
+  transition: background 0.16s, box-shadow 0.16s;
 }
 .kb-card {
   position: relative;
